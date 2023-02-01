@@ -50,7 +50,6 @@ export const options = {
       min: 0,
       max: 600,
       ticks: {
-        // forces step size to be 50 units
         stepSize: 120
       }
     }
