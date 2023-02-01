@@ -54,7 +54,7 @@ const Layout = ({ children, topBar }: any) => {
             </div>
             {!toggleMonth ? '' :
               <>
-                <ul className='flex flex-col cursor-default justify-evenly absolute list-none translate-y-[90px] rounded-md border-[1px] border-neutral-white-smoke drop-shadow-3xl bg-neutral-white w-[150px] h-[127px] pl-2.5'>
+                <ul className='flex flex-col cursor-default justify-evenly absolute list-none translate-y-[90px] rounded-md border-[1px] border-neutral-white-smoke shadow-3xl bg-neutral-white w-[150px] h-[127px] pl-2.5 text-primary-dark-blue'>
                   <li>Today</li>
                   <li>Last 7 Days</li>
                   <li>This Month</li>
@@ -62,7 +62,6 @@ const Layout = ({ children, topBar }: any) => {
                 </ul>
               </>
             }
-
             <div className='text-neutral-dim-grey pl-2.5'>Compared to previous Month</div>
           </div>
         </div>

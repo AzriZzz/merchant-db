@@ -31,8 +31,9 @@ module.exports = {
       fontFamily: {
         'inter': ['"Inter"', 'sans-serif'],
       },
-      dropShadow: {
+      boxShadow: {
         '3xl': '0 4px 16px 0 rgba(32, 45, 65, 0.2)',
+        'card': '0px 1px 3px 0px rgba(0, 0, 0, 0.2)',
       }
     },
     variants: {

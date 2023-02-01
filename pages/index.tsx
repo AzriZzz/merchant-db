@@ -1,9 +1,6 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
-import styles from '@/styles/Home.module.css'
-import Sidebar from '@/components/Sidebar'
 import Layout from '@/components/Layout'
+import Card from '@/components/Card'
 
 export default function Home() {
   return (
@@ -17,7 +14,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout topBar="Overview Dashboard">
-        Home
+        <Card />
       </Layout>
     </div>
   )
