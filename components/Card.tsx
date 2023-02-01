@@ -1,4 +1,5 @@
 import React from 'react'
+import LineChart from './LineChart'
 
 const Card = () => {
   return (
@@ -13,6 +14,10 @@ const Card = () => {
       <div className='mt-2.5 flex flex-row flex- items-center text-2xl '>
         <div className='pr-[5px] font-semibold'>RM1,200.00</div>
         <div className='text-xl text-primary-success'>&#8593; 2.6%</div>
+      </div>
+
+      <div>
+        <LineChart />
       </div>
 
     </div>
