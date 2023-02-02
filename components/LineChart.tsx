@@ -81,7 +81,7 @@ export const data = {
 
 const LineChart = () => {
   return (
-    <div className='flex h-[203px]'>
+    <div className='flex h-48 '>
       <Line options={options} data={data} />
     </div>
   )
