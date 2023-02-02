@@ -4,7 +4,7 @@ import Card from '@/components/Card'
 
 export default function Home() {
   return (
-    <div>
+    <div className='bg-primary-backgroud-blue'>
       <Head>
         <title>Billplz Merchant</title>
         <meta
@@ -14,7 +14,14 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout topBar="Overview Dashboard">
-        <Card />
+        <div className='flex flex-wrap gap-5'>
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+        </div>
       </Layout>
     </div>
   )

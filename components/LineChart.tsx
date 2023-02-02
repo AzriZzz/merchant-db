@@ -66,7 +66,8 @@ export const data = {
       data: [380, 360, 320, 280, 470, 580],
       borderColor: 'rgb(53, 162, 235)',
       backgroundColor: 'rgba(53, 162, 235, 0.5)',
-      pointStyle: 'line'
+      pointStyle: 'line',
+      borderWidth: 2,
     },
     {
       label: '',
@@ -74,7 +75,8 @@ export const data = {
       borderColor: 'rgba(202, 202, 202, 1)',
       backgroundColor: 'rgba(202, 202, 202, 1)',
       pointStyle: 'dash',
-      borderDash: [6]
+      borderDash: [6],
+      borderWidth: 2,
     },
   ],
 };

@@ -26,9 +26,9 @@ const Layout = ({ children, topBar }: any) => {
   }
 
   return (
-    <div className='flex flex-row justify-start h-screen bg-primary-backgroud-blue'>
+    <div className='flex flex-row justify-start h-screen '>
       <Sidebar />
-      <div className='flex-1 p-4 pt-6'>
+      <div className='flex-1 p-4 pt-6 overflow-auto'>
         {/* Topbar */}
         <div className='flex flex-row justify-between space-between'>
 
