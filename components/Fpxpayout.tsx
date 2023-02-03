@@ -10,7 +10,7 @@ const Fpxpayout = () => {
   }   
 
   return (
-    <div className='mt-2.5'>
+    <div className='mt-2.5 -translate-y-7'>
         <p className='text-xs mt-2.5 '>Expected to reach your bank account on 12 Sept 2021</p>
         <div className='my-2.5' style={dashedLines}></div>
 

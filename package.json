@@ -10,6 +10,8 @@
     "deploy": "git add . && git commit -m \"$npm_config_message\" && git push"
   },
   "dependencies": {
+    "@amcharts/amcharts3-react": "^3.1.1",
+    "@amcharts/amcharts4": "^4.10.33",
     "@next/font": "13.1.6",
     "@types/node": "18.11.18",
     "@types/react": "18.0.27",

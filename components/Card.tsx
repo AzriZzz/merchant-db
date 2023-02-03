@@ -1,6 +1,12 @@
 import React from 'react'
+import dynamic from 'next/dynamic'
 import LineChart from './LineChart'
 import Fpxpayout from './Fpxpayout'
+
+// Turn off rendering during SSR
+const PieChart = dynamic(() => import('./PieChart'), {
+  ssr: false,
+})
 
 interface CardType {
   title: string,
@@ -9,10 +15,17 @@ interface CardType {
   payouts?: string,
   growth?: string,
   trend?: boolean,
-  fpxPayout?: string
+  fpxPayout?: string,
+  pieChart?: boolean,
+  displayOnly?: boolean,
+  pieId?: number,
+  dataset?: {
+    item: string,
+    value: number,
+    color: string
+  }[]
 }
 const Card = (props: CardType) => {
-  console.log(props.trend)
   return (
     <div className='w-[374px] h-[312px] bg-neutral-white rounded-lg mt-5 p-5 shadow-card'>
 
@@ -27,7 +40,8 @@ const Card = (props: CardType) => {
             </div>
             <div className='font-bold text-primary-blue'>
               {/* Conditional statement based on See Details or View All */}
-              View All
+              {!props.displayOnly && ('View All')}
+
             </div>
           </div>
 
@@ -44,11 +58,7 @@ const Card = (props: CardType) => {
                 }
               </div>
             </div>
-            {
-              props.fpxPayout !== undefined && (
-                <Fpxpayout />
-              )
-            }
+
 
           </div>
           {/* Add secondary title here according to the type of information card display */}
@@ -62,6 +72,11 @@ const Card = (props: CardType) => {
           {props.transaction || props.collection || props.payouts ? (<LineChart />) : ''}
 
           {/* Payout Stuff */}
+          {props.fpxPayout !== undefined && (<Fpxpayout />)}
+
+          {/* 3D Pie Chart */}
+          {props.pieChart !== undefined && (<PieChart dataset={props.dataset} id={props.pieId} />)}
+
           {/* {props.fpxPayout ? (<Fpxpayout />) : ''} */}
 
         </div>

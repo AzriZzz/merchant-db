@@ -13,7 +13,6 @@ const Layout = ({ children, topBar }: any) => {
   })
 
   const clickDropdown = (dropdown: boolean) => {
-    console.log('test', dropdown);
 
     if (!dropdown) {
       setDropdown(true)
