@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Layout from '@/components/Layout'
 import Card from '@/components/Card'
+import NavHeader from '@/components/NavHeader';
 
 const chartData = [
   { item: "Online Banking", value: 9900.10, color: "#679DEB" },
@@ -9,8 +10,8 @@ const chartData = [
 ];
 
 const collections = [
-  { item: "Active Collection", value: 40, color: "#E8E8E8" },
-  { item: "Inactive Collection", value: 60, color: "#3784F4" },
+  { item: "Active Collection", value: 60, color: "#3784F4" },
+  { item: "Inactive Collection", value: 40, color: "#E8E8E8" },
 ];
 
 export default function Home() {
@@ -24,6 +25,8 @@ export default function Home() {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      
+      {/* <NavHeader /> */}
       <Layout topBar="Overview Dashboard">
         <div className='flex flex-wrap gap-5'>
         <Card title='Total Collections' collection='RM1,200.00' growth='2.6' trend={true}  />

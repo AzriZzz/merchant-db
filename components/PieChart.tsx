@@ -26,7 +26,7 @@ const PieChart = ( props: any) => {
     series.slices.template.propertyFields.fill = "color";
     series.ticks.template.disabled = true;
     series.alignLabels = false;
-    series.labels.template.text = "{value.percent.formatNumber('#.00')}%";
+    series.labels.template.text = "{value.percent.formatNumber('#.0')}%";
     series.labels.template.radius = am4core.percent(-50);
     series.labels.template.fill = am4core.color("white");
     series.labels.template.fontSize = 10;

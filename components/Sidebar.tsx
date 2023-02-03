@@ -31,7 +31,7 @@ const Sidebar = () => {
   const activeMenu = useMemo(():any => menuItems.find(menu => menu.link === router.pathname), [router.pathname])
 
   const wrapperclassname = classNames(
-    '  flex flex-col space-between justify-between h-screen px-4 pt-5 pl-5 pb-5 bg-primary w-80 font-dark '
+    ' hidden flex flex-col space-between justify-between h-screen px-4 pt-5 pl-5 pb-5 bg-primary w-80 font-dark '
   )
 
   const getSideItemClasses = (menu: any) => {
