@@ -15,13 +15,16 @@ export default function Home() {
       </Head>
       <Layout topBar="Overview Dashboard">
         <div className='flex flex-wrap gap-5'>
+        <Card title='Total Collections' collection='RM1,200.00' growth='2.6' trend={true}  />
+        <Card title='Total Transactions' transaction={39} growth='2.6' trend={false}  />
+        <Card title='Total Payouts' payouts='RM25,000' growth='5.6' trend={true}  />
+        <Card title='Upcoming FPX Payout' fpxPayout='RM1,600.00' />
+          {/* <Card />
           <Card />
           <Card />
           <Card />
-          <Card />
-          <Card />
-          <Card />
-        </div>
+          <Card /> */}
+        </div> 
       </Layout>
     </div>
   )

@@ -34,9 +34,9 @@ export const options = {
     },
     title: {
       display: false,
-      text: 'Chart.js Line Chart',
+      text: 'Line Chart',
     },
-  },
+  }, 
   scales: {
     x: {
       grid: {
@@ -47,6 +47,8 @@ export const options = {
       grid: {
         display: true
       },
+      // this min max should be scale according to the value
+      // received the date fetch from the API
       min: 0,
       max: 600,
       ticks: {
@@ -56,6 +58,7 @@ export const options = {
   }
 };
 
+// this value need to be update 
 const labels = ['1 Sep', '6 Sep', '12 Sep', '18 Sep', '24 Sep', '30 Sep'];
 
 export const data = {
@@ -63,7 +66,8 @@ export const data = {
   datasets: [
     {
       label: '',
-      data: [380, 360, 320, 280, 470, 580],
+      // this value needs to be coming from the API
+      data: [380, 360, 320, 280, 470, 580], 
       borderColor: 'rgb(53, 162, 235)',
       backgroundColor: 'rgba(53, 162, 235, 0.5)',
       pointStyle: 'line',
@@ -71,6 +75,7 @@ export const data = {
     },
     {
       label: '',
+      // this value needs to be coming from the API
       data: [240, 280, 300, 180, 150, 380],
       borderColor: 'rgba(202, 202, 202, 1)',
       backgroundColor: 'rgba(202, 202, 202, 1)',

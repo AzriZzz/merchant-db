@@ -1,7 +1,18 @@
 import React from 'react'
 import LineChart from './LineChart'
+import Fpxpayout from './Fpxpayout'
 
-const Card = () => {
+interface CardType {
+  title: string,
+  collection?: string,
+  transaction?: number,
+  payouts?: string,
+  growth?: string,
+  trend?: boolean,
+  fpxPayout?: string
+}
+const Card = (props: CardType) => {
+  console.log(props.trend)
   return (
     <div className='w-[374px] h-[312px] bg-neutral-white rounded-lg mt-5 p-5 shadow-card'>
 
@@ -10,18 +21,49 @@ const Card = () => {
       <div className='flex flex-col justify-between h-full space-between'>
         <div>
           <div className='flex justify-between space-between'>
-            <div className='font-bold'>Total Collections</div>
-            <div className='font-bold text-primary-blue'>View All</div>
+            <div className='font-bold'>
+              {props.title}
+              {/* Add a conditional icon here */}
+            </div>
+            <div className='font-bold text-primary-blue'>
+              {/* Conditional statement based on See Details or View All */}
+              View All
+            </div>
           </div>
 
-          <div className='mt-2.5 flex flex-row flex- items-center text-2xl '>
-            <div className='pr-[5px] font-semibold'>RM1,200.00</div>
-            <div className='text-xl text-primary-success'>&#8593; 2.6%</div>
+          <div className='mt-2.5'>
+            <div className='flex flex-row items-center text-2xl '>
+              <div className='pr-[5px] font-semibold'>{props.collection || props.payouts || props.transaction || props.fpxPayout}</div>
+              <div>
+                {
+                  props.trend !== undefined && (
+                    <div className={`text-xl ${props.trend ? 'text-primary-success' : 'text-primary-danger'}`}>
+                      {props.trend ? '\u2191' : '\u2193'}{props.growth}%
+                    </div>
+                  )
+                }
+              </div>
+            </div>
+            {
+              props.fpxPayout !== undefined && (
+                <Fpxpayout />
+              )
+            }
+
           </div>
+          {/* Add secondary title here according to the type of information card display */}
         </div>
 
+        {/* Below is the body, where we show most data, charts and other stuff */}
         <div>
-          <LineChart />
+          {/* Feed API data to the line chart to make it dynamic */}
+
+          {/* Line Chart Stuff */}
+          {props.transaction || props.collection || props.payouts ? (<LineChart />) : ''}
+
+          {/* Payout Stuff */}
+          {/* {props.fpxPayout ? (<Fpxpayout />) : ''} */}
+
         </div>
       </div>
 
