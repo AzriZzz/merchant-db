@@ -5,7 +5,7 @@ import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 
 am4core.useTheme(am4themes_animated);
 
-const PieChart = ( props: any) => {
+const PieChart = ( props: any) => {  
   const chartDiv = `chartDiv`+props.id ;
 
   useEffect(() => {

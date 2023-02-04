@@ -13,7 +13,7 @@ const paymentform = () => {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Layout topBar="Payment Form">paymentform</Layout>
+      <Layout topBar="Payment Form"></Layout>
     </div>
   )
 }

@@ -2,6 +2,9 @@ import Head from 'next/head'
 import Layout from '@/components/Layout'
 import Card from '@/components/Card'
 import NavHeader from '@/components/NavHeader';
+import { collectionLineChart, transactionChart, upcomingPayout, collectionPieChart, paymentMethodsPieChart, totalPayout } from '@/constants/data';
+import axios from 'axios';
+
 
 const chartData = [
   { item: "Online Banking", value: 9900.10, color: "#679DEB" },
@@ -14,7 +17,9 @@ const collections = [
   { item: "Inactive Collection", value: 40, color: "#E8E8E8" },
 ];
 
-export default function Home() {
+export default function Home(props: any) {
+  const { apiCollections } = props;
+
   return (
     <div className='bg-primary-backgroud-blue'>
       <Head>
@@ -29,36 +34,39 @@ export default function Home() {
       {/* <NavHeader /> */}
       <Layout topBar="Overview Dashboard">
         <div className='flex flex-wrap gap-x-5 md:justify-center lg:justify-start'>
+
+          {/* API Call from mockapi.io */}
           <Card
-            title='Total Collections'
-            collection='RM1,200.00'
+            title={collectionLineChart.title}
+            apiCollections={apiCollections}
             growth='2.6'
             trend={true}
           />
           <Card
-            title='Total Transactions'
+            title={transactionChart.title}
             transaction={39}
             growth='2.6'
             trend={false}
           />
           <Card
-            title='Upcoming FPX Payout'
-            fpxPayout='RM1,600.00' />
-          <Card
-            title='Total Payouts'
+            title={totalPayout.title}
             payouts='RM25,000'
             growth='5.6'
             trend={true}
           />
           <Card
-            title='Collections by Payment Methods'
+            title={upcomingPayout.title}
+            fpxPayout='RM1,600.00'
+          />
+          <Card
+            title={paymentMethodsPieChart.title}
             dataset={chartData}
             pieId={1}
             displayOnly={true}
             pieChart={true}
           />
           <Card
-            title='Active vs. Inactive Collections'
+            title={collectionPieChart.title}
             dataset={collections}
             pieId={2}
             displayOnly={true}
@@ -68,4 +76,15 @@ export default function Home() {
       </Layout>
     </div>
   )
+}
+
+export async function getServerSideProps(context: any) {
+  const res = await axios.get('https://63de5b049fa0d60060fd41a5.mockapi.io/merchant-blpz/collections');
+  const apiCollections = res.data;
+
+  return {
+    props: {
+      apiCollections,
+    },
+  };
 }
