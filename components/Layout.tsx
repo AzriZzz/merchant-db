@@ -9,7 +9,7 @@ const Layout = ({ children, topBar }: any) => {
   const [dropdown, setDropdown] = useState<boolean>(false);
   const [toggleMonth, setToggleMonth] = useState<boolean>(false)
 
-  const buttonWrapper = classNames('flex w-[118px] bg-neutral transition-all duration-300 ease-in-out  bg-neutral-white border-[1px] border-neutral-white  rounded-md text-primary-dark-blue items-center hover:cursor-pointer hover:border-neutral-white-smoke', {
+  const buttonWrapper = classNames('flex w-[118px] bg-neutral transition-all duration-300 ease-in-out bg-neutral-white border-[1px] border-neutral-white  rounded-md text-primary-dark-blue items-center hover:cursor-pointer hover:border-neutral-white-smoke', {
     'border-neutral-white-smoke': dropdown,
     '': !dropdown
   })

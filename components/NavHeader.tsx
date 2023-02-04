@@ -16,7 +16,6 @@ const NavHeader = ((props:any ) => {
             className="relative"
             width={24}
             height={24}
-
           />
         </button>
       </div>

@@ -35,7 +35,7 @@ const Sidebar = (props: any) => {
   const activeMenu = useMemo((): any => menuItems.find(menu => menu.link === router.pathname), [router.pathname])
 
   const wrapperclassname = classNames(
-    'flex flex-col absolute z-10 bg-neutral-white lg:relative space-between justify-between h-screen pb-5 lg:bg-primary-backgroud-blue w-80 font-dark',
+    'flex flex-col absolute z-10 bg-neutral-white lg:relative space-between justify-between h-screen pb-5 lg:bg-primary-backgroud-blue w-80 font-dark lg:translate-x-0 transition-all duration-300 ease-in-out',
     {
       '-translate-x-[400px]': !props.toggleNav,
       'translate-x-0': props.toggleNav,
@@ -53,7 +53,7 @@ const Sidebar = (props: any) => {
     // Navigation desktop & Mobile
     <div className={wrapperclassname}>
       <div className=''>
-        <div className='mb-2.5 lg:px-4 hidden lg:block'>
+        <div className='mb-2.5 lg:px-4 lg:pt-4 hidden lg:block'>
           {/* Dashboard Icon */}
           <Image
             src="/images/billplz-logo.svg"
