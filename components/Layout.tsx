@@ -2,17 +2,6 @@ import classNames from 'classnames';
 import React, { useState } from 'react'
 import NavHeader from './NavHeader';
 import Sidebar from './Sidebar'
-import styled from 'styled-components';
-
-const Overlay = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: block)};
-`;
 
 const Layout = ({ children, topBar }: any) => {
 
@@ -42,7 +31,7 @@ const Layout = ({ children, topBar }: any) => {
       {/* Navbar */}
       <Sidebar toggleNav={toggleNav} setToggleNav={setToggleNav} />
       {toggleNav && (
-        <Overlay />
+        <div className='fixed top-0 bottom-0 left-0 right-0 opacity-50 bg-neutral-black'></div>
       )}
       <div className='flex-1 overflow-auto lg:p-4 lg:pt-6 '>
         {/* Topbar */}
