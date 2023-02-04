@@ -25,23 +25,46 @@ export default function Home() {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      
+
       {/* <NavHeader /> */}
       <Layout topBar="Overview Dashboard">
-        <div className='flex flex-wrap gap-5'>
-        <Card title='Total Collections' collection='RM1,200.00' growth='2.6' trend={true}  />
-        <Card title='Total Transactions' transaction={39} growth='2.6' trend={false}  />
-        <Card title='Upcoming FPX Payout' fpxPayout='RM1,600.00' />
-        <Card title='Total Payouts' payouts='RM25,000' growth='5.6' trend={true}  />
-        <Card title='Collections by Payment Methods' dataset={chartData} pieId={1} displayOnly={true} pieChart={true} />
-        <Card title='Active vs. Inactive Collections' dataset={collections} pieId={2} displayOnly={true} pieChart={true} />
-        {/* <PieChart /> */}
-          {/* <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card /> */}
-        </div> 
+        <div className='flex flex-wrap gap-x-5 md:justify-center lg:justify-start'>
+          <Card
+            title='Total Collections'
+            collection='RM1,200.00'
+            growth='2.6'
+            trend={true}
+          />
+          <Card
+            title='Total Transactions'
+            transaction={39}
+            growth='2.6'
+            trend={false}
+          />
+          <Card
+            title='Upcoming FPX Payout'
+            fpxPayout='RM1,600.00' />
+          <Card
+            title='Total Payouts'
+            payouts='RM25,000'
+            growth='5.6'
+            trend={true}
+          />
+          <Card
+            title='Collections by Payment Methods'
+            dataset={chartData}
+            pieId={1}
+            displayOnly={true}
+            pieChart={true}
+          />
+          <Card
+            title='Active vs. Inactive Collections'
+            dataset={collections}
+            pieId={2}
+            displayOnly={true}
+            pieChart={true}
+          />
+        </div>
       </Layout>
     </div>
   )

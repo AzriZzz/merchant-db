@@ -12,6 +12,7 @@ const NavHeader = () => {
             className="relative"
             width={24}
             height={24}
+            onClick={ ()=> {console.log('click')}}
           />
         </button>
       </div>

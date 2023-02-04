@@ -27,7 +27,7 @@ interface CardType {
 }
 const Card = (props: CardType) => {
   return (
-    <div className='w-[374px] h-[312px] bg-neutral-white rounded-lg mt-5 p-5 shadow-card'>
+    <div className=' w-full md:w-[374px] h-[312px] bg-neutral-white rounded-lg mt-5 p-5 shadow-card'>
 
       {/* Card Header */}
 

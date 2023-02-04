@@ -20,8 +20,8 @@ https://codepen.io/pankajparashar/pen/kyNmBO
 
 To do
 1. Mobile view, navigation responsive
-   1. Dynamic card
-   2. Header body flex
+   1. Dynamic card - done
+   2. Header body flex - done
    3. Open Close navigation bar interaction
 2. Mock API call
    1. Total collection
