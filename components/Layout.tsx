@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import Image from 'next/image';
-import React, { useState } from 'react'
+import React, { useCallback, useState } from 'react'
 import NavHeader from './NavHeader';
 import Sidebar from './Sidebar'
 
@@ -24,22 +24,14 @@ const Layout = ({ children, topBar }: any) => {
     }
   }
 
-  const [toggleHamburger, setToggleHamburger] = useState<boolean>(false);
-  const [closeHamburger, setCloseHamburger] = useState<boolean>(false);
+  // Toggle Navbar
+  const [toggleNav, setToggleNav] = useState(false);
 
-  const navHeaderUpdate = (data:any) => {
-    setToggleHamburger(data)
-    console.log(data);
-  }
 
-  const closeNavbar = (data:any) => {
-    setToggleHamburger(data)
-    console.log(data);
-  }
 
   return (
     <div className='flex flex-row justify-start h-screen z-1'>
-      <Sidebar closeNavbar={closeNavbar} activeNav={toggleHamburger} />
+      <Sidebar toggleNav={toggleNav} setToggleNav={setToggleNav} />
       <div className='flex-1 overflow-auto lg:p-4 lg:pt-6'>
 
         {/* Topbar */}
@@ -48,7 +40,7 @@ const Layout = ({ children, topBar }: any) => {
           <div className='flex flex-col text-2xl font-bold lg:p-0 lg:flex-row'>
 
             {/* Mobile Header Topbar, for hamburger interaction */}
-            <NavHeader toggle={navHeaderUpdate}/>
+            <NavHeader toggleNav={toggleNav} setToggleNav={setToggleNav}/>
             
             <div className='px-4 lg:px-0 mt-3.5 lg:mt-0 mb-5 lg:mb-0'>
               {topBar}

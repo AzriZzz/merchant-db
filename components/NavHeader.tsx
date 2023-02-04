@@ -2,29 +2,21 @@ import React, { useState } from 'react'
 import Image from 'next/image';
 
 interface Navheader {
-  toggle: boolean
+  toggleNav: boolean
 }
 
-const NavHeader = ( props: { toggle: (arg0: boolean) => void; }) => {
-  const [ active, setActive ] = useState<boolean>(false);
-
-  const handleToggle = (active: boolean): void => {
-    console.log('Handle Toggle :', active)
-    setActive(active);
-    props.toggle(active);
-  }
-
+const NavHeader = ((props:any ) => {
   return (
     <div className='relative flex flex-row p-5 border-b z-1 border-neutral-white-smoke lg:hidden'>
       <div className='flex items-center mr-5'>
-        <button>
+        <button onClick={() => props.setToggleNav(!props.toggleNav)}>
           <Image
             src="/images/icons/menu.svg"
             alt="Billplz Logo"
             className="relative"
             width={24}
             height={24}
-            onClick={() => handleToggle(!active)}
+
           />
         </button>
       </div>
@@ -40,6 +32,6 @@ const NavHeader = ( props: { toggle: (arg0: boolean) => void; }) => {
       </div>
     </div>
   )
-}
+});
 
 export default NavHeader

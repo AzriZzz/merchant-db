@@ -31,18 +31,14 @@ interface Sidebar {
 
 const Sidebar = (props: any) => {
 
-  const [removeActive, setRemoveActive] = useState(props.activeNav);
-
-  console.log('Sidebar: ',props.activeNav)
-
   const router = useRouter()
   const activeMenu = useMemo((): any => menuItems.find(menu => menu.link === router.pathname), [router.pathname])
 
   const wrapperclassname = classNames(
     'flex flex-col absolute z-10 bg-neutral-white lg:relative space-between justify-between h-screen pb-5 lg:bg-primary-backgroud-blue w-80 font-dark',
     {
-      '-translate-x-[400px]': !props.activeNav,
-      'translate-x-0': props.activeNav,
+      '-translate-x-[400px]': !props.toggleNav,
+      'translate-x-0': props.toggleNav,
     }
   )
 
@@ -51,13 +47,6 @@ const Sidebar = (props: any) => {
       {
         ['text-primary-blue bg-primary-hover-blue']: activeMenu.id === menu.id
       })
-  }
-
-  const closeSidebar = () => {
-    setRemoveActive(!removeActive);
-    console.log('close ', removeActive)
-    props.closeNavbar(removeActive)
-
   }
 
   return (
@@ -105,14 +94,14 @@ const Sidebar = (props: any) => {
             <h6>
               Joy and Supply Store
             </h6>
-            <button className='cursor-pointer lg:hidden'>
+            <button className='cursor-pointer lg:hidden' onClick={() => props.setToggleNav(!props.toggleNav)}>
               <Image
                 src="/images/icons/close.svg"
                 alt="Close Icon"
                 className="relative"
                 width={30}
                 height={30}
-                onClick={ ()=> closeSidebar()}
+                
               />
             </button>
           </div>
