@@ -1,9 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Image from 'next/image';
 
-const NavHeader = () => {
+interface Navheader {
+  toggle: boolean
+}
+
+const NavHeader = ( props: { toggle: (arg0: boolean) => void; }) => {
+  const [ active, setActive ] = useState<boolean>(false);
+
+  const handleToggle = (active: boolean): void => {
+    console.log('Handle Toggle :', active)
+    setActive(active);
+    props.toggle(active);
+  }
+
   return (
-    <div className='flex flex-row p-5 border-b border-neutral-white-smoke lg:hidden'>
+    <div className='relative flex flex-row p-5 border-b z-1 border-neutral-white-smoke lg:hidden'>
       <div className='flex items-center mr-5'>
         <button>
           <Image
@@ -12,7 +24,7 @@ const NavHeader = () => {
             className="relative"
             width={24}
             height={24}
-            onClick={ ()=> {console.log('click')}}
+            onClick={() => handleToggle(!active)}
           />
         </button>
       </div>

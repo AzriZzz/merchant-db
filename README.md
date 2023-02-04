@@ -23,6 +23,9 @@ To do
    1. Dynamic card - done
    2. Header body flex - done
    3. Open Close navigation bar interaction
+      1. Come from the left to right
+      2. Background overlay
+      3. Close, and move from right to left
 2. Mock API call
    1. Total collection
    2. Total transaction

@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import React, { useMemo } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import Image from "next/image";
 import { useRouter } from 'next/router';
 import Link from 'next/link';
@@ -24,14 +24,26 @@ const menuFooterItems = [
   { id: 7, label: 'FAQ', icon: '/images/icons/redirect.svg', link: '/' }
 ]
 
+interface Sidebar {
+  activeNav: boolean
+}
 
-const Sidebar = () => {
+
+const Sidebar = (props: any) => {
+
+  const [removeActive, setRemoveActive] = useState(props.activeNav);
+
+  console.log('Sidebar: ',props.activeNav)
 
   const router = useRouter()
-  const activeMenu = useMemo(():any => menuItems.find(menu => menu.link === router.pathname), [router.pathname])
+  const activeMenu = useMemo((): any => menuItems.find(menu => menu.link === router.pathname), [router.pathname])
 
   const wrapperclassname = classNames(
-    ' hidden flex flex-col space-between justify-between h-screen px-4 pt-5 pl-5 pb-5 bg-primary w-80 font-dark '
+    'flex flex-col absolute z-10 bg-neutral-white lg:relative space-between justify-between h-screen pb-5 lg:bg-primary-backgroud-blue w-80 font-dark',
+    {
+      '-translate-x-[400px]': !props.activeNav,
+      'translate-x-0': props.activeNav,
+    }
   )
 
   const getSideItemClasses = (menu: any) => {
@@ -41,11 +53,18 @@ const Sidebar = () => {
       })
   }
 
+  const closeSidebar = () => {
+    setRemoveActive(!removeActive);
+    console.log('close ', removeActive)
+    props.closeNavbar(removeActive)
+
+  }
+
   return (
-    // Navigation desktop
+    // Navigation desktop & Mobile
     <div className={wrapperclassname}>
       <div className=''>
-        <div className='mb-2.5'>
+        <div className='mb-2.5 lg:px-4 hidden lg:block'>
           {/* Dashboard Icon */}
           <Image
             src="/images/billplz-logo.svg"
@@ -57,7 +76,7 @@ const Sidebar = () => {
         </div>
 
         {/* Organization Store And Name  */}
-        <div className='mt-2.5 flex items-center h-12'>
+        <div className='lg:mt-2.5 px-4 flex items-center h-[75px] border-b-[1px] border-neutral-white-smoke mb-5 lg:border-0'>
           <div className='-translate-x-1 '>
             <svg width="42" height="42" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
               <g filter="url(#filter0_d_1069_2967)">
@@ -82,11 +101,25 @@ const Sidebar = () => {
               </defs>
             </svg>
           </div>
-          <div className='p-[8px] pl-0font-bold '>Joy and Supply Store</div>
+          <div className='p-[8px] w-full pl-0 font-bold flex flex-row justify-between'>
+            <h6>
+              Joy and Supply Store
+            </h6>
+            <button className='cursor-pointer lg:hidden'>
+              <Image
+                src="/images/icons/close.svg"
+                alt="Close Icon"
+                className="relative"
+                width={30}
+                height={30}
+                onClick={ ()=> closeSidebar()}
+              />
+            </button>
+          </div>
         </div>
 
         {/* Main Menu */}
-        <div className='pt-2.5'>
+        <div className='mx-4'>
           {menuItems.map(({ ...menu }) => {
             const classes = getSideItemClasses(menu);
             return (
@@ -110,12 +143,12 @@ const Sidebar = () => {
         </div>
       </div>
       {/* Secondary Menu */}
-      <div >
+      <div className='pt-2.5 mx-4'>
         {menuFooterItems.map(({ ...menu }) => {
           const classes = getSideItemClasses(menu);
           return (
             <div className={classes} key={menu.id}>
-              <div className='pr-2.5 pt-[9px] pl-2 pb-2'>
+              <div className='pr-2.5 pt-[9px] pl-2 pb-2 '>
                 <Image
                   src={menu.icon}
                   alt={menu.label}
