@@ -4,6 +4,16 @@ import NavHeader from './NavHeader';
 import Sidebar from './Sidebar'
 import styled from 'styled-components';
 
+const Overlay = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: block)};
+`;
+
 const Layout = ({ children, topBar }: any) => {
 
   const [dropdown, setDropdown] = useState<boolean>(false);
@@ -86,12 +96,3 @@ const Layout = ({ children, topBar }: any) => {
 
 export default Layout
 
-const Overlay = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: block)};
-`;
