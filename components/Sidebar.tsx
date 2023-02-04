@@ -35,7 +35,7 @@ const Sidebar = (props: any) => {
   const activeMenu = useMemo((): any => menuItems.find(menu => menu.link === router.pathname), [router.pathname])
 
   const wrapperclassname = classNames(
-    'flex flex-col absolute z-10 bg-neutral-white lg:relative space-between justify-between h-screen pb-5 lg:bg-primary-backgroud-blue w-80 font-dark lg:translate-x-0 transition-all duration-300 ease-in-out',
+    'flex flex-col absolute z-10 bg-neutral-white lg:relative space-between justify-between h-screen pb-5 lg:bg-primary-backgroud-blue w-80 font-dark lg:translate-x-0 transition-all duration-500 ease-in-out',
     {
       '-translate-x-[400px]': !props.toggleNav,
       'translate-x-0': props.toggleNav,
@@ -43,7 +43,7 @@ const Sidebar = (props: any) => {
   )
 
   const getSideItemClasses = (menu: any) => {
-    return classNames('flex flex-row items-center transition-all duration-300 ease-in-out rounded-lg cursor-pointer hover:bg-primary-hover-blue hover:text-primary-blue',
+    return classNames('flex flex-row items-center transition duration-1000 ease-in-out rounded-lg cursor-pointer hover:bg-primary-hover-blue hover:text-primary-blue',
       {
         ['text-primary-blue bg-primary-hover-blue']: activeMenu.id === menu.id
       })

@@ -8,7 +8,7 @@ const Layout = ({ children, topBar }: any) => {
   const [dropdown, setDropdown] = useState<boolean>(false);
   const [toggleMonth, setToggleMonth] = useState<boolean>(false)
 
-  const buttonWrapper = classNames('flex w-[118px] bg-neutral transition-all duration-300 ease-in-out bg-neutral-white border-[1px] border-neutral-white  rounded-md text-primary-dark-blue items-center hover:cursor-pointer hover:border-neutral-white-smoke', {
+  const buttonWrapper = classNames('flex w-[118px] bg-neutral transition-all duration-300 ease-in-out bg-neutral-white border-[1px] border-neutral-white rounded-md text-primary-dark-blue items-center hover:cursor-pointer hover:border-neutral-white-smoke', {
     'border-neutral-white-smoke': dropdown,
     '': !dropdown
   })
@@ -30,8 +30,10 @@ const Layout = ({ children, topBar }: any) => {
     <div className='flex flex-row justify-start h-screen z-1'>
       {/* Navbar */}
       <Sidebar toggleNav={toggleNav} setToggleNav={setToggleNav} />
+
+      {/* Overlay background */}
       {toggleNav && (
-        <div className='fixed top-0 bottom-0 left-0 right-0 opacity-50 bg-neutral-black'></div>
+        <div className='fixed top-0 bottom-0 left-0 right-0 transition duration-700 ease-in-out opacity-10 bg-neutral-black'></div>
       )}
       <div className='flex-1 overflow-auto lg:p-4 lg:pt-6 '>
         {/* Topbar */}
@@ -75,7 +77,7 @@ const Layout = ({ children, topBar }: any) => {
             <div className='text-neutral-dim-grey pl-2.5'>Compared to previous Month</div>
           </div>
         </div>
-        <div className='px-4 lg:px-0'>
+        <div className='px-4 lg:px-0 mb-14 lg:mb-0'>
           {children}
         </div>
       </div>
