@@ -7,7 +7,7 @@ interface Navheader {
 
 const NavHeader = ((props:any ) => {
   return (
-    <div className='relative flex flex-row p-5 border-b z-1 border-neutral-white-smoke lg:hidden'>
+    <div className='flex flex-row p-5 border-b z-1 border-neutral-white-smoke lg:hidden'>
       <div className='flex items-center mr-5'>
         <button onClick={() => props.setToggleNav(!props.toggleNav)}>
           <Image

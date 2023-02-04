@@ -1,8 +1,8 @@
 import classNames from 'classnames';
-import Image from 'next/image';
-import React, { useCallback, useState } from 'react'
+import React, { useState } from 'react'
 import NavHeader from './NavHeader';
 import Sidebar from './Sidebar'
+import styled from 'styled-components';
 
 const Layout = ({ children, topBar }: any) => {
 
@@ -27,21 +27,22 @@ const Layout = ({ children, topBar }: any) => {
   // Toggle Navbar
   const [toggleNav, setToggleNav] = useState(false);
 
-
-
   return (
     <div className='flex flex-row justify-start h-screen z-1'>
+      {/* Navbar */}
       <Sidebar toggleNav={toggleNav} setToggleNav={setToggleNav} />
-      <div className='flex-1 overflow-auto lg:p-4 lg:pt-6'>
-
+      {toggleNav && (
+        <Overlay />
+      )}
+      <div className='flex-1 overflow-auto lg:p-4 lg:pt-6 '>
         {/* Topbar */}
         <div className='flex flex-col lg:justify-between lg:flex-row space-between'>
 
           <div className='flex flex-col text-2xl font-bold lg:p-0 lg:flex-row'>
 
             {/* Mobile Header Topbar, for hamburger interaction */}
-            <NavHeader toggleNav={toggleNav} setToggleNav={setToggleNav}/>
-            
+            <NavHeader toggleNav={toggleNav} setToggleNav={setToggleNav} />
+
             <div className='px-4 lg:px-0 mt-3.5 lg:mt-0 mb-5 lg:mb-0'>
               {topBar}
             </div>
@@ -84,3 +85,13 @@ const Layout = ({ children, topBar }: any) => {
 }
 
 export default Layout
+
+const Overlay = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: block)};
+`;

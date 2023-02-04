@@ -55,7 +55,7 @@ const Card = (props: CardType) => {
                       {props.trend ? '\u2191' : '\u2193'}{props.growth}%
                     </div>
                   )
-                }
+                } 
               </div>
             </div>
 

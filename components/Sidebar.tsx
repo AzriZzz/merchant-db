@@ -52,8 +52,8 @@ const Sidebar = (props: any) => {
   return (
     // Navigation desktop & Mobile
     <div className={wrapperclassname}>
-      <div className=''>
-        <div className='mb-2.5 lg:px-4 lg:pt-4 hidden lg:block'>
+      <div className='mb-2.5'>
+        <div className='hidden lg:px-4 lg:pt-4 lg:block'>
           {/* Dashboard Icon */}
           <Image
             src="/images/billplz-logo.svg"
