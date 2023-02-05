@@ -33,3 +33,42 @@ export const paymentMethodsPieChart = {
   cards: 'Cards',
   eWallet: 'E-Wallet'
 }
+
+export const subscriptionData = {
+  basic: {
+    plan: 'Basic',
+    price: 100,
+    renewal: 'per month',
+    features: [
+      'Latest 100 customer data', 
+      'Process', 
+      'Feature 3'
+    ],
+  },
+  standard: {
+    plan: 'Standard',
+    price: 500,
+    renewal: 'per month',
+    features: [
+      'Latest 100 customer data',
+      'Process',
+      'Feature 3',
+      'Feature Hidden 4'
+    ]
+  },
+  super: {
+    plan: 'Super',
+    price: 1000,
+    renewal: 'per month',
+    features: [
+      'Latest 100 customer data',
+      'Process',
+      'Feature 3',
+      'Feature Hidden 4',
+      'Feature Hidden 5'
+    ]
+  }
+
+  
+
+}

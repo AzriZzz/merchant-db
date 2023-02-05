@@ -34,6 +34,8 @@ module.exports = {
       boxShadow: {
         '3xl': '0 4px 16px 0 rgba(32, 45, 65, 0.2)',
         'card': '0px 1px 3px 0px rgba(0, 0, 0, 0.2)',
+        'subsCard': '0px 10px 30px rgba(32, 45, 65, 0.1)',
+        'button': '0px 1px 3px rgba(0, 0, 0, 0.2)'
       }
     },
     variants: {
