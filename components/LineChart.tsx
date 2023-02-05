@@ -53,7 +53,7 @@ const LineChart = (props?: any) => {
 
     minTick = Math.floor(min);
     maxTick = Math.floor(max);
-    stepSize = Math.floor((maxTick - minTick) / (labels.length))
+    stepSize = Math.floor((maxTick - minTick) / (labels.length - 1))
 
     actualLine = props.dataset.map((item: { collection: number }) => item.collection);
     
@@ -86,7 +86,7 @@ const LineChart = (props?: any) => {
         },
         // this min max should be scale according to the value
         // received the date fetch from the API
-        min: minTick,
+        min: 0,
         max: maxTick + 100,
         ticks: {
           stepSize: stepSize

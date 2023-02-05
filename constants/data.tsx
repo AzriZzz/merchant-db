@@ -17,7 +17,7 @@ export const upcomingPayout = {
   title: 'Upcoming FPX Payout',
   icon: true,
   button: 'See Details',
-  statement: 'Expected to reach your bank account on ',
+  statement: 'Expected to reach your bank account on 12 Sept 2021',
   bodyTitle: 'Collection Date'
 }
 

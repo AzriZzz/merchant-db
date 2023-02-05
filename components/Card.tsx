@@ -77,8 +77,9 @@ const Card = (props: CardType) => {
             <div className='flex flex-row items-center text-2xl '>
               <div className='pr-[5px] font-semibold'>
                 {
-                  props.title === collectionLineChart.title || props.title === upcomingPayout.title ? `RM ${total.toFixed(2)}`  :
+                  props.title === collectionLineChart.title ? `RM ${total.toFixed(2)}`  :
                   props.title === transactionChart.title ? (`${props.transaction}`) :
+                  props.title === upcomingPayout.title ? (props.fpxPayout) :
                   props.title === totalPayout.title ? `${props.payouts}` : ('')
                 }
               </div>
