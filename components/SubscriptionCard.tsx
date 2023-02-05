@@ -23,7 +23,7 @@ const SubscriptionCard = (props: any) => {
                     <h6 className='font-bold uppercase pb-[15px]'>
                         {info.plan}
                     </h6>
-                    <p className=' text-primary-blue font-bold text-3xl'>RM{info.price}</p>
+                    <p className=' text-primary-blue font-bold text-3xl'>RM{info.price.toLocaleString()}</p>
                     <p className=' text-primary-blue'>{info.renewal}</p>
                 </div>
                 <div className='text-center border-b-[1px] border-neutral-white-smoke my-[30px]'></div>
