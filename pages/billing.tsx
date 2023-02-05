@@ -13,7 +13,7 @@ const billing = () => {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Layout topBar="Billing">billing</Layout>
+      <Layout topBar="Billing"></Layout>
     </div>
   )
 }
