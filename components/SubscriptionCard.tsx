@@ -4,6 +4,7 @@ import React from 'react'
 const SubscriptionCard = (props: any) => {
     const { info } = props;
 
+    
     // Normal and Popular card behaviour
     const normalCard = 'border border-neutral-white-smoke'
     const popularCard = 'border-2 border-primary-blue';
@@ -13,8 +14,8 @@ const SubscriptionCard = (props: any) => {
     const normalButton = 'bg-primary-blue border-primary-blue border-2 shadow-button text-neutral-white';
 
     return (
-        <div className={`w-full md:w-[300px] h-[449px] fill rounded-xl shadow-subsCard  bg-neutral-white flex flex-col justify-between  
-        ${info.plan === subscriptionData.standard.plan ? popularCard : normalCard}`}
+        <div className={`w-full md:w-[300px] h-[449px] fill rounded-xl shadow-subsCard transition-all duration-300 ease-in-out bg-neutral-white hover:scale-105 flex flex-col justify-between  
+        ${info.plan === subscriptionData.standard.plan ? popularCard : normalCard} }`}
         >
             {info.plan === 'Standard' && (<div className=' bg-primary-blue text-neutral-white uppercase text-center w-full text-xs py-1 rounded-t-lg '>Popular</div>)}
             <div className='px-[30px]'>
