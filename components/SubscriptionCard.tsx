@@ -6,7 +6,7 @@ const SubscriptionCard = (props: any) => {
 
     
     // Card popularity behaviour
-    const cardPopularity = info.plan !== subscriptionData.standard.plan ? 'border border-neutral-white-smoke' : 'border-2 border-primary-blue'
+    const cardPopularity = info.plan !== subscriptionData.standard.plan ? 'border border-neutral-white-smoke h-[449px]' : 'border-2 border-primary-blue h-[457px] -translate-y-2'
 
     // Current and Subscribe Button Behaviour
     const buttonBehaviour = info.plan === subscriptionData.basic.plan ? 'bg-neutral-white-smoke border-neutral-white-smoke border-2 text-neutral-dim-grey' : 'bg-primary-blue border-primary-blue border-2 shadow-button text-neutral-white';
@@ -15,11 +15,11 @@ const SubscriptionCard = (props: any) => {
     const buttonText =  info.plan === subscriptionData.basic.plan ? subscribeButton.current : subscribeButton.subscribe;
 
     return (
-        <div className={`w-full md:w-[300px] h-[449px] fill rounded-xl shadow-subsCard transition-all duration-300 ease-in-out bg-neutral-white hover:scale-105 flex flex-col justify-between ${cardPopularity} }`}
+        <div className={`w-full md:w-[300px]  trans fill rounded-xl shadow-subsCard transition-all duration-300 ease-in-out bg-neutral-white hover:scale-105 flex flex-col justify-between ${cardPopularity} }`}
         >
             {info.plan === 'Standard' && (<div className=' bg-primary-blue text-neutral-white uppercase text-center w-full text-xs py-1 rounded-t-lg '>Popular</div>)}
             <div className='px-[30px]'>
-                <div className={`w-full text-center ${info.plan === 'Standard' ? `mt-[0px] ` : `mt-[62px] `} `}>
+                <div className={`w-full text-center ${info.plan === 'Standard' ? `mt-[5px] ` : `mt-[62px] `} `}>
                     <h6 className='font-bold uppercase pb-[15px]'>
                         {info.plan}
                     </h6>
