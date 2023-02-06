@@ -10,7 +10,6 @@
     "deploy": "git add . && git commit -m \"$npm_config_message\" && git push"
   },
   "dependencies": {
-    "@amcharts/amcharts3-react": "^3.1.1",
     "@amcharts/amcharts4": "^4.10.33",
     "@next/font": "13.1.6",
     "@types/node": "18.11.18",
@@ -22,20 +21,14 @@
     "eslint": "8.33.0",
     "eslint-config-next": "13.1.6",
     "lottie-react-web": "^2.2.2",
-    "lottie-web": "^5.10.2",
     "next": "13.1.6",
     "react": "18.2.0",
     "react-chartjs-2": "^5.2.0",
     "react-dom": "18.2.0",
-    "styled-components": "^5.3.6",
     "typescript": "4.9.5"
   },
   "devDependencies": {
-    "@faker-js/faker": "^7.6.0",
-    "@types/faker": "^6.6.9",
-    "@types/styled-components": "^5.1.26",
     "autoprefixer": "^10.4.13",
-    "faker": "^5.5.3",
     "postcss": "^8.4.21",
     "tailwindcss": "^3.2.4"
   }
