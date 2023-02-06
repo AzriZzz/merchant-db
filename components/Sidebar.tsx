@@ -81,7 +81,7 @@ const Sidebar = (props: any) => {
                     <Image
                       src={menu.icon}
                       alt={menu.label}
-                      className="relative stroke-primary-dark-blue hover:stroke-primary-hover-blue"
+                      className="relative"
                       width={18}
                       height={18}
                     />
