@@ -11,6 +11,7 @@ const SubscriptionCard = (props: any) => {
     // Current and Subscribe Button Behaviour
     const buttonBehaviour = info.plan === subscriptionData.basic.plan ? 'bg-neutral-white-smoke border-neutral-white-smoke border-2 text-neutral-dim-grey' : 'bg-primary-blue border-primary-blue border-2 shadow-button text-neutral-white';
 
+    // Button text behaviour
     const buttonText =  info.plan === subscriptionData.basic.plan ? subscribeButton.current : subscribeButton.subscribe;
 
     return (

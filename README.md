@@ -27,5 +27,4 @@ To do
       2. Background overlay - done
       3. Close, and move from right to left - done
 2. Mock API call
-   1. Total collection
-   2. Total transaction
+   1. Total collection - done
