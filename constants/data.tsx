@@ -13,6 +13,11 @@ export const totalPayout = {
   button: 'View All',
 }
 
+export const totalBill = {
+  title: 'Total Bill',
+  button: 'View All'
+}
+
 export const upcomingPayout = {
   title: 'Upcoming FPX Payout',
   icon: true,

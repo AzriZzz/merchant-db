@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import dynamic from 'next/dynamic'
 import LineChart from './LineChart'
 import Fpxpayout from './Fpxpayout'
-import { collectionLineChart, transactionChart, upcomingPayout, totalPayout } from '@/constants/data'
+import { collectionLineChart, transactionChart, upcomingPayout, totalPayout, totalBill } from '@/constants/data'
 
 // Turn off rendering during SSR
 const PieChart = dynamic(() => import('./PieChart'), {
@@ -80,7 +80,7 @@ const Card = (props: CardType) => {
                   props.title === collectionLineChart.title ? `RM ${total.toFixed(2)}`  :
                   props.title === transactionChart.title ? (`${props.transaction}`) :
                   props.title === upcomingPayout.title ? (props.fpxPayout) :
-                  props.title === totalPayout.title ? `${props.payouts}` : ('')
+                  props.title === totalPayout.title || props.title === totalBill.title ? `${props.payouts}` : ('')
                 }
               </div>
               <div>

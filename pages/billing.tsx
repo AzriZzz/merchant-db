@@ -1,4 +1,6 @@
+import Card from '@/components/Card'
 import Layout from '@/components/Layout'
+import { totalPayout, totalBill } from '@/constants/data'
 import Head from 'next/head'
 import React from 'react'
 
@@ -13,7 +15,14 @@ const billing = () => {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Layout topBar="Billing"></Layout>
+      <Layout topBar="Billing">
+        <Card
+          title={totalBill.title}
+          payouts='RM25,000'
+          growth='5.6'
+          trend={true}
+        />
+      </Layout>
     </div>
   )
 }
