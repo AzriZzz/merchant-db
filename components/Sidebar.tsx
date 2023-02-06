@@ -3,30 +3,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import Image from "next/image";
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-
-interface MenuItemType {
-  id: number,
-  label: string,
-  icon: string,
-  link: string
-}
-
-const menuItems = [
-  { id: 1, label: 'Dashboard', icon: '/images/icons/home.svg', link: '/' },
-  { id: 2, label: 'Billing', icon: '/images/icons/payout.svg', link: '/billing' },
-  { id: 3, label: 'Payment Form', icon: '/images/icons/payout.svg', link: '/paymentform' },
-  { id: 4, label: 'Subscription', icon: '/images/icons/payout.svg', link: '/subscription' },
-]
-
-const menuFooterItems = [
-  { id: 5, label: 'Account Setting', icon: '/images/icons/settings.svg', link: '/' },
-  { id: 6, label: 'Support', icon: '/images/icons/redirect.svg', link: '/' },
-  { id: 7, label: 'FAQ', icon: '/images/icons/redirect.svg', link: '/' }
-]
-
-interface Sidebar {
-  activeNav: boolean
-}
+import { menuFooterItems, menuItems } from '@/constants/data';
 
 
 const Sidebar = (props: any) => {

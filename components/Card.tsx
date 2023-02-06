@@ -3,34 +3,12 @@ import dynamic from 'next/dynamic'
 import LineChart from './LineChart'
 import Fpxpayout from './Fpxpayout'
 import { collectionLineChart, transactionChart, upcomingPayout, totalPayout, totalBill } from '@/constants/data'
+import { CardType } from '@/models/config'
 
 // Turn off rendering during SSR
 const PieChart = dynamic(() => import('./PieChart'), {
   ssr: false,
 })
-
-interface CardType {
-  title: string,
-  transaction?: number,
-  payouts?: string,
-  growth?: string,
-  trend?: boolean,
-  fpxPayout?: string,
-  pieChart?: boolean,
-  displayOnly?: boolean,
-  pieId?: number,
-  dataset?: {
-    item: string,
-    value: number,
-    color: string
-  }[],
-  apiCollections?: [{
-    collection: string,
-    createdAt: string,
-    dateCollected: string,
-    id: string
-  }]
-}
 
 function findTotalCollection(data: any) {
   return data.reduce((acc: any, item: any) => {

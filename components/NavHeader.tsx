@@ -1,10 +1,6 @@
 import React, { useState } from 'react'
 import Image from 'next/image';
 
-interface Navheader {
-  toggleNav: boolean
-}
-
 const NavHeader = ((props:any ) => {
   return (
     <div className='flex flex-row p-5 border-b z-1 border-neutral-white-smoke lg:hidden'>

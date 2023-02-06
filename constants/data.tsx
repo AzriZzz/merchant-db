@@ -105,3 +105,52 @@ export const subscribeButton = {
   current: 'Current Plan',
   subscribe: 'Subscribe Plan'
 }
+
+export const menuItems = [
+  { 
+    id: 1, 
+    label: 
+    'Dashboard', 
+    icon: '/images/icons/home.svg', 
+    link: '/' 
+  },
+  { 
+    id: 2, 
+    label: 
+    'Billing', 
+    icon: '/images/icons/payout.svg', 
+    link: '/billing' 
+  },
+  { 
+    id: 3, 
+    label: 'Payment Form', 
+    icon: '/images/icons/payout.svg', 
+    link: '/paymentform' 
+  },
+  { 
+    id: 4, 
+    label: 'Subscription', 
+    icon: '/images/icons/payout.svg', 
+    link: '/subscription' 
+  },
+]
+
+export const menuFooterItems = [
+  { 
+    id: 5, 
+    label: 'Account Setting', 
+    icon: '/images/icons/settings.svg', 
+    link: '/' 
+  },
+  { 
+    id: 6, 
+    label: 'Support', 
+    icon: '/images/icons/redirect.svg', 
+    link: '/' },
+  { 
+    id: 7, 
+    label: 'FAQ', 
+    icon: '/images/icons/redirect.svg', 
+    link: '/' 
+  }
+]
