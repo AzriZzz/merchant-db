@@ -1,24 +1,43 @@
+import { useEffect, useState } from 'react';
 import Head from 'next/head'
 import Layout from '@/components/Layout'
 import Card from '@/components/Card'
-import NavHeader from '@/components/NavHeader';
-import { collectionLineChart, transactionChart, upcomingPayout, collectionPieChart, paymentMethodsPieChart, totalPayout } from '@/constants/data';
+import { collectionLineChart, transactionChart, upcomingPayout, collectionPieChart, paymentMethodsPieChart, totalPayout, chartData, collections } from '@/constants/data';
 import axios from 'axios';
 
+import Paperplane from "../public/lottie/Paperplane.json";
+import Lottie from 'lottie-react-web';
 
-const chartData = [
-  { item: "Online Banking", value: 9900.10, color: "#679DEB" },
-  { item: "Cards", value: 2330.20, color: "#AECFFF" },
-  { item: "E-Wallet", value: 900.00, color: "#84B6FF" }
-];
-
-const collections = [
-  { item: "Active Collection", value: 60, color: "#3784F4" },
-  { item: "Inactive Collection", value: 40, color: "#E8E8E8" },
-];
 
 export default function Home(props: any) {
   const { apiCollections } = props;
+
+  const [isLoading, setIsLoading] = useState(true);
+
+
+  useEffect(() => {
+    // Check if the loading state is stored in memory
+    const loadingState = sessionStorage.getItem('loadingState');
+    if (loadingState) {
+      setIsLoading(JSON.parse(loadingState));
+    } else {
+      // Fetch data here
+      setTimeout(() => {
+        setIsLoading(false);
+        // Store the loading state in memory
+        sessionStorage.setItem('loadingState', JSON.stringify(false));
+      }, 3000);
+    }
+  }, []);
+
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: Paperplane,
+    rendererSettings: {
+      preserveAspectRatio: 'xMidYMid slice'
+    }
+  };
 
   return (
     <div className='bg-primary-backgroud-blue'>
@@ -32,48 +51,56 @@ export default function Home(props: any) {
       </Head>
 
       {/* <NavHeader /> */}
-      <Layout topBar="Overview Dashboard">
-        <div className='flex flex-wrap gap-x-5 md:justify-center lg:justify-start'>
 
-          {/* API Call from mockapi.io */}
-          <Card
-            title={collectionLineChart.title}
-            apiCollections={apiCollections}
-            growth='2.6'
-            trend={true}
-          />
-          <Card
-            title={transactionChart.title}
-            transaction={39}
-            growth='2.6'
-            trend={false}
-          />
-          <Card
-            title={totalPayout.title}
-            payouts='RM25,000'
-            growth='5.6'
-            trend={true}
-          />
-          <Card
-            title={upcomingPayout.title}
-            fpxPayout='RM1,600.00'
-          />
-          <Card
-            title={paymentMethodsPieChart.title}
-            dataset={chartData}
-            pieId={1}
-            displayOnly={true}
-            pieChart={true}
-          />
-          <Card
-            title={collectionPieChart.title}
-            dataset={collections}
-            pieId={2}
-            displayOnly={true}
-            pieChart={true}
-          />
+      {/* Add Loader */}
+      {isLoading ? (
+        <div className='w-screen h-screen flex justify-center items-center'>
+          <Lottie options={defaultOptions} height={200} width={200} />
         </div>
-      </Layout>
+      ) : (
+        <Layout topBar="Overview Dashboard">
+          <div className='flex flex-wrap gap-x-5 md:justify-center lg:justify-start'>
+
+            {/* API Call from mockapi.io */}
+            <Card
+              title={collectionLineChart.title}
+              apiCollections={apiCollections}
+              growth='2.6'
+              trend={true}
+            />
+            <Card
+              title={transactionChart.title}
+              transaction={39}
+              growth='2.6'
+              trend={false}
+            />
+            <Card
+              title={totalPayout.title}
+              payouts='RM25,000'
+              growth='5.6'
+              trend={true}
+            />
+            <Card
+              title={upcomingPayout.title}
+              fpxPayout='RM1,600.00'
+            />
+            <Card
+              title={paymentMethodsPieChart.title}
+              dataset={chartData}
+              pieId={1}
+              displayOnly={true}
+              pieChart={true}
+            />
+            <Card
+              title={collectionPieChart.title}
+              dataset={collections}
+              pieId={2}
+              displayOnly={true}
+              pieChart={true}
+            />
+          </div>
+        </Layout>
+      )}
     </div>
   )
 }

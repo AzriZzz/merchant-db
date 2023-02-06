@@ -40,8 +40,8 @@ export const subscriptionData = {
     price: 100,
     renewal: 'per month',
     features: [
-      'Latest 100 customer data', 
-      'Process', 
+      'Latest 100 customer data',
+      'Process',
       'Feature 3'
     ],
   },
@@ -68,7 +68,30 @@ export const subscriptionData = {
       'Feature Hidden 5'
     ]
   }
-
-  
-
 }
+
+export const chartData = [
+  {
+    item: "Online Banking",
+    value: 9900.10, color: "#679DEB"
+  },
+{
+    item: "Cards",
+    value: 2330.20, color: "#AECFFF"
+  },
+  {
+    item: "E-Wallet",
+    value: 900.00, color: "#84B6FF"
+  }
+]
+
+export const collections = [
+  { 
+    item: "Active Collection", 
+    value: 60, color: "#3784F4" 
+  },
+  { 
+    item: "Inactive Collection", 
+    value: 40, color: "#E8E8E8" 
+  }
+];
