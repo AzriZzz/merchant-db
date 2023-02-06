@@ -5,7 +5,7 @@ const SubscriptionCard = (props: any) => {
     const { info } = props;
 
     // Card popularity behaviour
-    const cardPopularity = info.plan !== subscriptionData.standard.plan ? 'border border-neutral-white-smoke h-[449px]' : 'border-2 border-primary-blue h-[457px] -translate-y-2 hover:-translate-y-4';
+    const cardPopularity = info.plan !== subscriptionData.standard.plan ? 'border border-neutral-white-smoke h-[449px]' : 'border-2 border-primary-blue h-[457px] -translate-y-2 lg:hover:-translate-y-4';
 
     // Current and Subscribe Button Behaviour
     const buttonBehaviour = info.plan === subscriptionData.basic.plan ? 'bg-neutral-white-smoke border-neutral-white-smoke border-2 text-neutral-dim-grey' : 'bg-primary-blue border-primary-blue border-2 shadow-button text-neutral-white';
