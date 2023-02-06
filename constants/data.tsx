@@ -100,3 +100,8 @@ export const collections = [
     value: 40, color: "#E8E8E8" 
   }
 ];
+
+export const subscribeButton = {
+  current: 'Current Plan',
+  subscribe: 'Subscribe Plan'
+}

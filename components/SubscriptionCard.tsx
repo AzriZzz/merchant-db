@@ -1,21 +1,20 @@
-import { subscriptionData } from '@/constants/data'
+import { subscribeButton, subscriptionData } from '@/constants/data'
 import React from 'react'
 
 const SubscriptionCard = (props: any) => {
     const { info } = props;
 
     
-    // Normal and Popular card behaviour
-    const normalCard = 'border border-neutral-white-smoke'
-    const popularCard = 'border-2 border-primary-blue';
+    // Card popularity behaviour
+    const cardPopularity = info.plan !== subscriptionData.standard.plan ? 'border border-neutral-white-smoke' : 'border-2 border-primary-blue'
 
     // Current and Subscribe Button Behaviour
-    const currentButton = 'bg-neutral-white-smoke border-neutral-white-smoke border-2 text-neutral-dim-grey';
-    const normalButton = 'bg-primary-blue border-primary-blue border-2 shadow-button text-neutral-white';
+    const buttonBehaviour = info.plan === subscriptionData.basic.plan ? 'bg-neutral-white-smoke border-neutral-white-smoke border-2 text-neutral-dim-grey' : 'bg-primary-blue border-primary-blue border-2 shadow-button text-neutral-white';
+
+    const buttonText =  info.plan === subscriptionData.basic.plan ? subscribeButton.current : subscribeButton.subscribe;
 
     return (
-        <div className={`w-full md:w-[300px] h-[449px] fill rounded-xl shadow-subsCard transition-all duration-300 ease-in-out bg-neutral-white hover:scale-105 flex flex-col justify-between  
-        ${info.plan === subscriptionData.standard.plan ? popularCard : normalCard} }`}
+        <div className={`w-full md:w-[300px] h-[449px] fill rounded-xl shadow-subsCard transition-all duration-300 ease-in-out bg-neutral-white hover:scale-105 flex flex-col justify-between ${cardPopularity} }`}
         >
             {info.plan === 'Standard' && (<div className=' bg-primary-blue text-neutral-white uppercase text-center w-full text-xs py-1 rounded-t-lg '>Popular</div>)}
             <div className='px-[30px]'>
@@ -35,9 +34,8 @@ const SubscriptionCard = (props: any) => {
                 </ul>
             </div>
             <div className='px-[30px]'>
-
-                <button className={`w-full cursor-pointer focus:pointer-events-auto font-semibold mb-5 text-sm  py-[10px] rounded-lg  ${info.plan === subscriptionData.basic.plan ? currentButton : normalButton}`}>
-                    {info.plan === subscriptionData.basic.plan ? (`Current Plan`) : (`Subscribe plan`)}
+                <button className={`w-full cursor-pointer focus:pointer-events-auto font-semibold mb-5 text-sm  py-[10px] rounded-lg ${buttonBehaviour} `}>
+                    {buttonText}
                 </button>
             </div>
         </div>
