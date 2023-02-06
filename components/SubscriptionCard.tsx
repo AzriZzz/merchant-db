@@ -16,7 +16,7 @@ const SubscriptionCard = (props: any) => {
         <div className={`w-full md:w-[300px] h-[449px] fill rounded-xl shadow-subsCard  bg-neutral-white flex flex-col justify-between  
         ${info.plan === subscriptionData.standard.plan ? popularCard : normalCard}`}
         >
-            {info.plan === 'Standard' && (<div className=' bg-primary-blue text-neutral-white uppercase text-center w-full text-xs py-1'>Popular</div>)}
+            {info.plan === 'Standard' && (<div className=' bg-primary-blue text-neutral-white uppercase text-center w-full text-xs py-1 rounded-t-lg '>Popular</div>)}
             <div className='px-[30px]'>
                 <div className={`w-full text-center ${info.plan === 'Standard' ? `mt-[0px] ` : `mt-[62px] `} `}>
                     <h6 className='font-bold uppercase pb-[15px]'>
