@@ -32,7 +32,7 @@ const Card = (props: CardType) => {
     }
     return () => {
     }
-  }, [])
+  }, [props.amount, props.apiCollections])
 
 
 

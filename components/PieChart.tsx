@@ -51,7 +51,7 @@ const PieChart = ( props: any) => {
     return () => {
       chart.dispose();
     };
-  }, []);
+  }, [chartDiv, props.dataset]);
 
   return (
     <div className='-translate-y-12' style={{ width: "90%", height: "190px", margin: "auto", }}>
