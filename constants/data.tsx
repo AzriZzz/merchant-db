@@ -18,6 +18,13 @@ export const totalBill = {
   button: 'View All'
 }
 
+export const totalPaid = {
+  title: 'Total Paid',
+  amount: 10000
+}
+
+export const cardState = ['Simple', 'Advanced']
+
 export const upcomingPayout = {
   title: 'Upcoming FPX Payout',
   icon: true,
@@ -121,12 +128,12 @@ export const menuItems = [
     icon: '/images/icons/payout.svg', 
     link: '/billing' 
   },
-  { 
-    id: 3, 
-    label: 'Payment Form', 
-    icon: '/images/icons/payout.svg', 
-    link: '/paymentform' 
-  },
+  // { 
+  //   id: 3, 
+  //   label: 'Payment Form', 
+  //   icon: '/images/icons/payout.svg', 
+  //   link: '/paymentform' 
+  // },
   { 
     id: 4, 
     label: 'Subscription', 
@@ -154,3 +161,4 @@ export const menuFooterItems = [
     link: '/' 
   }
 ]
+

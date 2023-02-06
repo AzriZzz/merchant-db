@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import dynamic from 'next/dynamic'
 import LineChart from './LineChart'
 import Fpxpayout from './Fpxpayout'
-import { collectionLineChart, transactionChart, upcomingPayout, totalPayout, totalBill } from '@/constants/data'
+import { collectionLineChart, transactionChart, upcomingPayout, totalPayout, totalBill, cardState, totalPaid } from '@/constants/data'
 import { CardType } from '@/models/config'
 
 // Turn off rendering during SSR
@@ -17,11 +17,15 @@ function findTotalCollection(data: any) {
 }
 
 const Card = (props: CardType) => {
-
   const [total, setTotal] = useState(0);
+  const [amount, setAmount] = useState('');
 
 
   useEffect(() => {
+
+    const bill = typeof props.amount === 'number' ? props.amount.toFixed(2) : '-';
+    setAmount(bill);
+
     if (props.apiCollections !== undefined) {
       const totalCollection = findTotalCollection(props.apiCollections);
       setTotal(totalCollection)
@@ -33,32 +37,40 @@ const Card = (props: CardType) => {
 
 
   return (
-    <div className=' w-full md:w-[374px] h-[312px] bg-neutral-white rounded-lg mt-5 p-5 shadow-card'>
+    <div className={`w-full md:w-[374px] ${props.state === cardState[0] ? `h-[93px]` : `h-[312px]` }  bg-neutral-white rounded-lg mt-5 p-5 shadow-card`}>
 
       {/* Card Header */}
 
       <div className='flex flex-col justify-between h-full space-between'>
         <div>
           <div className='flex justify-between space-between'>
-            <div className='font-bold'>
+            <div className={`${props.state === cardState[0] ? '' : 'font-bold'} `}>
               {props.title}
               {/* Add a conditional icon here */}
             </div>
             <div className='font-bold text-primary-blue'>
               {/* Conditional statement based on See Details or View All */}
-              {!props.displayOnly && ('View All')}
+              {
+                props.title === collectionLineChart.title || 
+                props.title === transactionChart.title || 
+                props.title === totalPayout.title || 
+                props.title === totalBill.title ? `View All` :
+                props.title === upcomingPayout.title ? `See details` : ''
+              }
 
             </div>
           </div>
 
           <div className='mt-2.5'>
             <div className='flex flex-row items-center text-2xl '>
-              <div className='pr-[5px] font-semibold'>
+              <div className={`pr-[5px] font-semibold ${props.state === cardState[0] ? ' text-lg text-primary-success -translate-y-2' : '' }`}>
                 {
-                  props.title === collectionLineChart.title ? `RM ${total.toFixed(2)}`  :
+                  props.title === collectionLineChart.title ? `RM ${total.toFixed(2)}` :
+                  props.title === totalPaid.title ? `RM ${amount}`:
                   props.title === transactionChart.title ? (`${props.transaction}`) :
                   props.title === upcomingPayout.title ? (props.fpxPayout) :
-                  props.title === totalPayout.title || props.title === totalBill.title ? `${props.payouts}` : ('')
+                  props.title === totalPayout.title || 
+                  props.title === totalBill.title ? `${props.payouts}` : ('')
                 }
               </div>
               <div>

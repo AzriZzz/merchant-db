@@ -15,8 +15,9 @@ export interface Navheader {
 }
 
 export interface CardType {
-    title: string,
+    title?: string,
     transaction?: number,
+    amount?: number,
     payouts?: string,
     growth?: string,
     trend?: boolean,
@@ -34,5 +35,6 @@ export interface CardType {
         createdAt: string,
         dateCollected: string,
         id: string
-    }]
+    }],
+    state?: string
 }
