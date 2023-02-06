@@ -12,32 +12,32 @@ import Lottie from 'lottie-react-web';
 export default function Home(props: any) {
   const { apiCollections } = props;
 
-  const [isLoading, setIsLoading] = useState(true);
+  // const [isLoading, setIsLoading] = useState(true);
 
 
-  useEffect(() => {
-    // Check if the loading state is stored in memory
-    const loadingState = sessionStorage.getItem('loadingState');
-    if (loadingState) {
-      setIsLoading(JSON.parse(loadingState));
-    } else {
-      // Fetch data here
-      setTimeout(() => {
-        setIsLoading(false);
-        // Store the loading state in memory
-        sessionStorage.setItem('loadingState', JSON.stringify(false));
-      }, 3000);
-    }
-  }, []);
+  // useEffect(() => {
+  //   // Check if the loading state is stored in memory
+  //   const loadingState = sessionStorage.getItem('loadingState');
+  //   if (loadingState) {
+  //     setIsLoading(JSON.parse(loadingState));
+  //   } else {
+  //     // Fetch data here
+  //     setTimeout(() => {
+  //       setIsLoading(false);
+  //       // Store the loading state in memory
+  //       sessionStorage.setItem('loadingState', JSON.stringify(false));
+  //     }, 3000);
+  //   }
+  // }, []);
 
-  const defaultOptions = {
-    loop: true,
-    autoplay: true,
-    animationData: Paperplane,
-    rendererSettings: {
-      preserveAspectRatio: 'xMidYMid slice'
-    }
-  };
+  // const defaultOptions = {
+  //   loop: true,
+  //   autoplay: true,
+  //   animationData: Paperplane,
+  //   rendererSettings: {
+  //     preserveAspectRatio: 'xMidYMid slice'
+  //   }
+  // };
 
   return (
     <div className='bg-primary-backgroud-blue'>
@@ -54,11 +54,11 @@ export default function Home(props: any) {
 
       {/* Add Loader */}
 
-      {isLoading ? (
+      {/* {isLoading ? (
         <div className='w-screen h-screen flex justify-center items-center'>
           <Lottie options={defaultOptions} height={200} width={200} />
         </div>
-      ) : (
+      ) : ( */}
         <Layout topBar="Overview Dashboard">
           <div className='flex flex-wrap gap-x-5 md:justify-center lg:justify-start'>
 
@@ -101,7 +101,7 @@ export default function Home(props: any) {
             />
           </div>
         </Layout>
-      )}
+      {/* )} */}
     </div>
   )
 }
