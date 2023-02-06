@@ -53,6 +53,7 @@ export default function Home(props: any) {
       {/* <NavHeader /> */}
 
       {/* Add Loader */}
+
       {isLoading ? (
         <div className='w-screen h-screen flex justify-center items-center'>
           <Lottie options={defaultOptions} height={200} width={200} />

@@ -12,7 +12,6 @@ const SubscriptionCard = (props: any) => {
     const currentButton = 'bg-neutral-white-smoke border-neutral-white-smoke border-2 text-neutral-dim-grey';
     const normalButton = 'bg-primary-blue border-primary-blue border-2 shadow-button text-neutral-white';
 
-    console.log(info)
     return (
         <div className={`w-full md:w-[300px] h-[449px] fill rounded-xl shadow-subsCard  bg-neutral-white flex flex-col justify-between  
         ${info.plan === subscriptionData.standard.plan ? popularCard : normalCard}`}
