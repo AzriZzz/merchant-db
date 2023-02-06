@@ -128,12 +128,12 @@ export const menuItems = [
     icon: '/images/icons/payout.svg', 
     link: '/billing' 
   },
-  { 
-    id: 3, 
-    label: 'Payment Form', 
-    icon: '/images/icons/payout.svg', 
-    link: '/paymentform' 
-  },
+  // { 
+  //   id: 3, 
+  //   label: 'Payment Form', 
+  //   icon: '/images/icons/payout.svg', 
+  //   link: '/paymentform' 
+  // },
   { 
     id: 4, 
     label: 'Subscription', 
