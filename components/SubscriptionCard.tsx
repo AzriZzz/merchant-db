@@ -14,7 +14,7 @@ const SubscriptionCard = (props: any) => {
     const buttonText =  info.plan === subscriptionData.basic.plan ? subscribeButton.current : subscribeButton.subscribe;
 
     return (
-        <div className={`w-full md:w-[300px]  trans fill rounded-xl shadow-subsCard transition-all duration-300 ease-in-out bg-neutral-white hover:scale-105 hover:-translate-y-2 flex flex-col justify-between ${cardPopularity} }`}
+        <div className={`w-full md:w-[300px]  trans fill rounded-xl shadow-subsCard transition-all duration-300 ease-in-out bg-neutral-white lg:hover:scale-105 lg:hover:-translate-y-2 flex flex-col justify-between ${cardPopularity} }`}
         >
             {info.plan === 'Standard' && (<div className=' bg-primary-blue text-neutral-white uppercase text-center w-full text-xs py-1 rounded-t-lg '>Popular</div>)}
             <div className='px-[30px]'>

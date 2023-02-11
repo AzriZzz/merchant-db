@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import dynamic from 'next/dynamic'
 import LineChart from './LineChart'
 import Fpxpayout from './Fpxpayout'
+import Collection from './Collection'
 import { collectionLineChart, transactionChart, upcomingPayout, totalPayout, totalBill, cardState, totalPaid } from '@/constants/data'
 import { CardType } from '@/models/config'
 
@@ -94,15 +95,17 @@ const Card = (props: CardType) => {
           {/* Feed API data to the line chart to make it dynamic */}
 
           {/* Line Chart Stuff */}
-          {props.transaction || props.title === collectionLineChart.title || props.payouts ? (<LineChart dataset={props.apiCollections} />) : ''}
+          { props.transaction || props.title === collectionLineChart.title || props.payouts ? (<LineChart dataset={props.apiCollections} />) : ''}
 
           {/* Payout Stuff */}
-          {props.fpxPayout !== undefined && (<Fpxpayout />)}
+          { props.fpxPayout !== undefined && (<Fpxpayout />)}
 
           {/* 3D Pie Chart */}
-          {props.pieChart !== undefined && (<PieChart dataset={props.dataset} id={props.pieId} />)}
+          { props.pieChart !== undefined && (<PieChart dataset={props.dataset} id={props.pieId} />)}
 
-          {/* {props.fpxPayout ? (<Fpxpayout />) : ''} */}
+          {/* Performing Collection */}
+          { props.title !== undefined && (<Collection dataset={performance} />)}
+
 
         </div>
       </div>

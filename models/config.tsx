@@ -36,5 +36,9 @@ export interface CardType {
         dateCollected: string,
         id: string
     }],
-    state?: string
+    state?: string,
+    performance?: {
+        store: string,
+        totalRevenue: number
+    }[]
 }

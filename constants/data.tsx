@@ -46,6 +46,36 @@ export const paymentMethodsPieChart = {
   eWallet: 'E-Wallet'
 }
 
+export const performingCollection = {
+  title: 'Top 5 Performing Collections',
+  onlineBanking: 'Online Banking',
+  cards: 'Cards',
+  eWallet: 'E-Wallet'
+}
+
+export const storePerformance = [
+  {
+    store: 'TUITION CENTER A (MONTHLY)',
+    totalRevenue: 10000,
+  },
+  {
+    store: 'SHREDDER2U.COM.MY',
+    totalRevenue: 7500,
+  },
+  {
+    store: 'EZ BOUTIQUE',
+    totalRevenue: 4000,
+  },
+  {
+    store: 'BOOKSTORE SHOPIFY',
+    totalRevenue: 3000,
+  },
+  {
+    store: 'MARKETING WITH JOY',
+    totalRevenue: 2500,
+  },
+]
+
 export const subscriptionData = {
   basic: {
     plan: 'Basic',
@@ -100,11 +130,11 @@ export const chartData = [
 export const collections = [
   { 
     item: "Active Collection", 
-    value: 60, color: "#3784F4" 
+    value: 1600, color: "#3784F4" 
   },
   { 
     item: "Inactive Collection", 
-    value: 40, color: "#E8E8E8" 
+    value: 1400, color: "#E8E8E8" 
   }
 ];
 

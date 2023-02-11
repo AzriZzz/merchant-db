@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import Head from 'next/head'
 import Layout from '@/components/Layout'
 import Card from '@/components/Card'
-import { collectionLineChart, transactionChart, upcomingPayout, collectionPieChart, paymentMethodsPieChart, totalPayout, chartData, collections } from '@/constants/data';
+import { collectionLineChart, transactionChart, upcomingPayout, collectionPieChart, paymentMethodsPieChart, totalPayout, chartData, collections, performingCollection, storePerformance } from '@/constants/data';
 import axios from 'axios';
 
 import Paperplane from "../public/lottie/Paperplane.json";
@@ -84,6 +84,10 @@ export default function Home(props: any) {
             <Card
               title={upcomingPayout.title}
               fpxPayout='RM1,600.00'
+            />
+            <Card
+              title={performingCollection.title}
+              performance={storePerformance}
             />
             <Card
               title={paymentMethodsPieChart.title}
