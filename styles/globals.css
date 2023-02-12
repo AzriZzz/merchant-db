@@ -9,3 +9,22 @@
     font-family: Inter, sans-serif;
   }
 }
+
+@layer components {
+
+  .sub-card-popular {
+    @apply border border-neutral-white-smoke h-[449px]
+  }
+
+  .sub-card-non-popular {
+    @apply border-2 border-primary-blue h-[457px] -translate-y-2 lg:hover:-translate-y-4
+  }
+
+  .sub-card-btn-non-active {
+    @apply border-2 cursor-default bg-neutral-white-smoke border-neutral-white-smoke text-neutral-silver;
+  }
+  
+  .sub-card-btn-active {
+    @apply border-2 bg-primary-blue border-primary-blue shadow-button text-neutral-white;
+  }
+}

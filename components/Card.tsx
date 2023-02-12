@@ -3,8 +3,9 @@ import dynamic from 'next/dynamic'
 import LineChart from './LineChart'
 import Fpxpayout from './Fpxpayout'
 import Collection from './Collection'
-import { collectionLineChart, transactionChart, upcomingPayout, totalPayout, totalBill, cardState, totalPaid } from '@/constants/data'
+import { collectionLineChart, transactionChart, upcomingPayout, totalPayout, totalBill, cardState, totalPaid, performingCollection } from '@/constants/data'
 import { CardType } from '@/models/config'
+import { formatterDouble } from '@/constants/injector'
 
 // Turn off rendering during SSR
 const PieChart = dynamic(() => import('./PieChart'), {
@@ -19,18 +20,13 @@ function findTotalCollection(data: any) {
 
 const Card = (props: CardType) => {
   const [total, setTotal] = useState(0);
-  const [amount, setAmount] = useState('');
-
 
   useEffect(() => {
-
-    const bill = typeof props.amount === 'number' ? props.amount.toFixed(2) : '-';
-    setAmount(bill);
-
     if (props.apiCollections !== undefined) {
       const totalCollection = findTotalCollection(props.apiCollections);
       setTotal(totalCollection)
     }
+    
     return () => {
     }
   }, [props.amount, props.apiCollections])
@@ -66,12 +62,12 @@ const Card = (props: CardType) => {
             <div className='flex flex-row items-center text-2xl '>
               <div className={`pr-[5px] font-semibold ${props.state === cardState[0] ? ' text-lg text-primary-success -translate-y-2' : '' }`}>
                 {
-                  props.title === collectionLineChart.title ? `RM ${total.toFixed(2)}` :
-                  props.title === totalPaid.title ? `RM ${amount}`:
+                  props.title === collectionLineChart.title ? formatterDouble.format(Number(total)) :
+                  props.title === totalPaid.title ? formatterDouble.format(Number(props.amount)) :
                   props.title === transactionChart.title ? (`${props.transaction}`) :
-                  props.title === upcomingPayout.title ? (props.fpxPayout) :
+                  props.title === upcomingPayout.title ? formatterDouble.format(Number(props.fpxPayout))  :
                   props.title === totalPayout.title || 
-                  props.title === totalBill.title ? `${props.payouts}` : ('')
+                  props.title === totalBill.title ? formatterDouble.format(Number(props.payouts)) : ('')
                 }
               </div>
               <div>
@@ -104,7 +100,7 @@ const Card = (props: CardType) => {
           { props.pieChart !== undefined && (<PieChart dataset={props.dataset} id={props.pieId} />)}
 
           {/* Performing Collection */}
-          { props.title !== undefined && (<Collection dataset={performance} />)}
+          { props.performance !== undefined && (<Collection data={props.performance} />)}
 
 
         </div>

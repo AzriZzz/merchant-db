@@ -25,6 +25,8 @@ module.exports = {
         'white-smoke': '#E9E9E9',
         'white': '#FFFFFF',
         'transparent': 'transparent',
+        'grey-smoke' : '#E8E8E8',
+        'after-blue': '#28BFFF'
       }
     },
     extend: {

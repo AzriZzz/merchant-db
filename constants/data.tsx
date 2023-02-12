@@ -57,22 +57,36 @@ export const storePerformance = [
   {
     store: 'TUITION CENTER A (MONTHLY)',
     totalRevenue: 10000,
+    percentage: 45,
+    width: 100
   },
   {
     store: 'SHREDDER2U.COM.MY',
     totalRevenue: 7500,
+    percentage: 15,
+    width: 85
+
   },
   {
     store: 'EZ BOUTIQUE',
     totalRevenue: 4000,
+    percentage: 7,
+    width:75
+
   },
   {
     store: 'BOOKSTORE SHOPIFY',
     totalRevenue: 3000,
+    percentage: 5,
+    width: 55
+
   },
   {
     store: 'MARKETING WITH JOY',
     totalRevenue: 2500,
+    percentage: 4,
+    width: 45
+
   },
 ]
 
@@ -117,7 +131,7 @@ export const chartData = [
     item: "Online Banking",
     value: 9900.10, color: "#679DEB"
   },
-{
+  {
     item: "Cards",
     value: 2330.20, color: "#AECFFF"
   },
@@ -128,13 +142,13 @@ export const chartData = [
 ]
 
 export const collections = [
-  { 
-    item: "Active Collection", 
-    value: 1600, color: "#3784F4" 
+  {
+    item: "Active Collection",
+    value: 1600, color: "#3784F4"
   },
-  { 
-    item: "Inactive Collection", 
-    value: 1400, color: "#E8E8E8" 
+  {
+    item: "Inactive Collection",
+    value: 1400, color: "#E8E8E8"
   }
 ];
 
@@ -144,19 +158,19 @@ export const subscribeButton = {
 }
 
 export const menuItems = [
-  { 
-    id: 1, 
-    label: 
-    'Dashboard', 
-    icon: '/images/icons/home.svg', 
-    link: '/' 
+  {
+    id: 1,
+    label:
+      'Dashboard',
+    icon: '/images/icons/home.svg',
+    link: '/'
   },
-  { 
-    id: 2, 
-    label: 
-    'Billing', 
-    icon: '/images/icons/payout.svg', 
-    link: '/billing' 
+  {
+    id: 2,
+    label:
+      'Billing',
+    icon: '/images/icons/payout.svg',
+    link: '/billing'
   },
   // { 
   //   id: 3, 
@@ -164,31 +178,32 @@ export const menuItems = [
   //   icon: '/images/icons/payout.svg', 
   //   link: '/paymentform' 
   // },
-  { 
-    id: 4, 
-    label: 'Subscription', 
-    icon: '/images/icons/payout.svg', 
-    link: '/subscription' 
+  {
+    id: 4,
+    label: 'Subscription',
+    icon: '/images/icons/payout.svg',
+    link: '/subscription'
   },
 ]
 
 export const menuFooterItems = [
-  { 
-    id: 5, 
-    label: 'Account Setting', 
-    icon: '/images/icons/settings.svg', 
-    link: '/' 
+  {
+    id: 5,
+    label: 'Account Setting',
+    icon: '/images/icons/settings.svg',
+    link: '/'
   },
-  { 
-    id: 6, 
-    label: 'Support', 
-    icon: '/images/icons/redirect.svg', 
-    link: '/' },
-  { 
-    id: 7, 
-    label: 'FAQ', 
-    icon: '/images/icons/redirect.svg', 
-    link: '/' 
+  {
+    id: 6,
+    label: 'Support',
+    icon: '/images/icons/redirect.svg',
+    link: '/'
+  },
+  {
+    id: 7,
+    label: 'FAQ',
+    icon: '/images/icons/redirect.svg',
+    link: '/'
   }
 ]
 

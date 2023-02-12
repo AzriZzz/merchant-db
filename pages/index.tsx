@@ -55,56 +55,56 @@ export default function Home(props: any) {
       {/* Add Loader */}
 
       {/* {isLoading ? (
-        <div className='w-screen h-screen flex justify-center items-center'>
+        <div className='flex items-center justify-center w-screen h-screen'>
           <Lottie options={defaultOptions} height={200} width={200} />
         </div>
       ) : ( */}
-        <Layout topBar="Overview Dashboard">
-          <div className='flex flex-wrap gap-x-5 md:justify-center lg:justify-start'>
+      <Layout topBar="Overview Dashboard">
+        <div className='flex flex-wrap gap-x-5 md:justify-center lg:justify-start'>
 
-            {/* API Call from mockapi.io */}
-            <Card
-              title={collectionLineChart.title}
-              apiCollections={apiCollections}
-              growth='2.6'
-              trend={true}
-            />
-            <Card
-              title={transactionChart.title}
-              transaction={39}
-              growth='2.6'
-              trend={false}
-            />
-            <Card
-              title={totalPayout.title}
-              payouts='RM25,000'
-              growth='5.6'
-              trend={true}
-            />
-            <Card
-              title={upcomingPayout.title}
-              fpxPayout='RM1,600.00'
-            />
-            <Card
-              title={performingCollection.title}
-              performance={storePerformance}
-            />
-            <Card
-              title={paymentMethodsPieChart.title}
-              dataset={chartData}
-              pieId={1}
-              displayOnly={true}
-              pieChart={true}
-            />
-            <Card
-              title={collectionPieChart.title}
-              dataset={collections}
-              pieId={2}
-              displayOnly={true}
-              pieChart={true}
-            />
-          </div>
-        </Layout>
+          {/* API Call from mockapi.io */}
+          <Card
+            title={collectionLineChart.title}
+            apiCollections={apiCollections}
+            growth='2.6'
+            trend={true}
+          />
+          <Card
+            title={transactionChart.title}
+            transaction={39}
+            growth='2.6'
+            trend={false}
+          />
+          <Card
+            title={totalPayout.title}
+            payouts={25000}
+            growth='5.6'
+            trend={true}
+          />
+          <Card
+            title={upcomingPayout.title}
+            fpxPayout={1600}
+          />
+          <Card
+            title={performingCollection.title}
+            performance={storePerformance}
+          />
+          <Card
+            title={collectionPieChart.title}
+            dataset={collections}
+            pieId={2}
+            displayOnly={true}
+            pieChart={true}
+          />
+          <Card
+            title={paymentMethodsPieChart.title}
+            dataset={chartData}
+            pieId={1}
+            displayOnly={true}
+            pieChart={true}
+          />
+        </div>
+      </Layout>
       {/* )} */}
     </div>
   )

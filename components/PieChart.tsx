@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
 import am4themes_animated from "@amcharts/amcharts4/themes/animated";
+import List from './List';
 
 am4core.useTheme(am4themes_animated);
 
@@ -63,15 +64,7 @@ const PieChart = ( props: any) => {
       <ul className='flex flex-row justify-between mt-4 text-xs'>
         {
           props.dataset?.map( ({item, color, value}: any) => (
-            <li key={item} className='font-semibold'>
-              <div className='flex flex-row items-center'>
-                <div style={{ backgroundColor: color }} className={`w-[9px] mr-[5px] h-[9px] rounded-full`}></div>
-                <h6>{item}</h6>
-              </div>
-              <p className='font-normal ml-[14px] text-neutral-dim-grey'>
-                { props.id === 1 ? (`RM ${value.toFixed(2)}`) : value}
-                </p>
-            </li>
+            <List key={item} item={item} color={color} value={value} id={props.id} />
           ) )
         }
       </ul>

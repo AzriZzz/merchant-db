@@ -1,6 +1,6 @@
 import Card from '@/components/Card'
 import Layout from '@/components/Layout'
-import { totalPayout, totalBill, totalPaid } from '@/constants/data'
+import { totalPayout, totalBill, totalPaid, performingCollection, storePerformance } from '@/constants/data'
 import Head from 'next/head'
 import React from 'react'
 
@@ -19,9 +19,14 @@ const billing = () => {
         <div className='flex flex-wrap gap-x-5 md:justify-center lg:justify-start'>
           <Card
             title={totalBill.title}
-            payouts='RM900.00'
+            payouts={900}
             growth='10.6'
             trend={true}
+          />
+
+          <Card
+            title={performingCollection.title}
+            performance={storePerformance}
           />
 
           <Card title={totalPaid.title} amount={totalPaid.amount} state="Simple" />
