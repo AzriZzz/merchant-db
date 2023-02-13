@@ -12,7 +12,7 @@ const Sidebar = (props: any) => {
   const activeMenu = useMemo((): any => menuItems.find(menu => menu.link === router.pathname), [router.pathname])
 
   const wrapperclassname = classNames(
-    'flex flex-col absolute z-10 bg-neutral-white lg:relative space-between justify-between h-screen pb-5 lg:bg-primary-backgroud-blue w-80 font-dark lg:translate-x-0 transition-all duration-500 ease-in-out',
+    'flex flex-col absolute z-20 bg-neutral-white lg:relative space-between justify-between h-screen pb-5 lg:bg-primary-backgroud-blue w-80 font-dark lg:translate-x-0 transition-all duration-500 ease-in-out',
     {
       '-translate-x-[400px]': !props.toggleNav,
       'translate-x-0': props.toggleNav,
@@ -43,14 +43,13 @@ const Sidebar = (props: any) => {
 
         {/* Organization Store And Name  */}
         <div className='lg:mt-2.5 px-4 flex items-center h-[75px] border-b-[1px] border-neutral-white-smoke mb-5 lg:border-0'>
-          <div className='-translate-x-1 '>
+          <div className='-translate-x-1'>
             <Image
               src="/images/icons/store.svg"
               alt="Close Icon"
               className="relative"
               width={42}
               height={42}
-
             />
           </div>
           <div className='p-[8px] w-full pl-0 font-bold flex flex-row justify-between'>

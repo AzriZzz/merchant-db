@@ -49,8 +49,12 @@ const LineChart = (props?: any) => {
       acc.min = Math.min(acc.min, collection);
       acc.max = Math.max(acc.max, collection);
       return acc;
-    }, { min: Infinity, max: -Infinity });
+    }, 
+    // used as placeholders when searching for the minimum or maximum value in a set of numbers
+    { min: Infinity, max: -Infinity });
 
+
+    // to find the min
     minTick = Math.floor(min);
     maxTick = Math.floor(max);
     stepSize = Math.floor((maxTick - minTick) / (labels.length - 1))
@@ -99,7 +103,7 @@ const LineChart = (props?: any) => {
     labels,
     datasets: [
       {
-        label: '',
+        label: 'Actual',
         // this value needs to be coming from the API
         data: actualLine,
         borderColor: 'rgb(53, 162, 235)',
@@ -108,7 +112,7 @@ const LineChart = (props?: any) => {
         borderWidth: 2,
       },
       {
-        label: '',
+        label: 'Forecast',
         // this value needs to be coming from the API
         data: forecastLine,
         borderColor: 'rgba(202, 202, 202, 1)',

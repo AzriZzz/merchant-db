@@ -12,14 +12,17 @@ const HorizontalChart = ({ item, delay }: any) => {
         return;
       }
 
-      width += 1;
+      // control the animation speed
+      width += 2;
       transitionBar.current.style.width = `${width}%`;
       if (width < item.width) {
+        // to perform the animation as soon as possible, rather than waiting for the next repaint.
         window.requestAnimationFrame(animateWidth);
       }
     }
     setTimeout(() => animateWidth(), delay);
   }, [item.width, delay]);
+
   return (
     <li className='flex flex-col text-xs'>
       <span className='uppercase text-neutral-dim-grey'>{item.store}</span>
@@ -31,7 +34,7 @@ const HorizontalChart = ({ item, delay }: any) => {
               width: `0%`,
               backgroundColor: '#3784F4'
             }}
-            className={`relative text-neutral-white pl-[6px] py-[2.5px] `}>
+            className={`relative z-0 text-neutral-white pl-[6px] py-[2.5px] `}>
             {formatterDouble.format(item.totalRevenue)}
             <div className='absolute bottom-0 right-0 w-[5px] h-full bg-neutral-after-blue'></div>
           </div>
