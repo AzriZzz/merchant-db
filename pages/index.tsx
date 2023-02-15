@@ -1,44 +1,11 @@
-import { useEffect, useState } from 'react';
 import Head from 'next/head'
 import Layout from '@/components/Layout'
 import Card from '@/components/Card'
 import { collectionLineChart, transactionChart, upcomingPayout, collectionPieChart, paymentMethodsPieChart, totalPayout, chartData, collections, performingCollection, storePerformance } from '@/constants/data';
 import axios from 'axios';
 
-import Paperplane from "../public/lottie/Paperplane.json";
-import Lottie from 'lottie-react-web';
-
-
 export default function Home(props: any) {
   const { apiCollections } = props;
-
-  // const [isLoading, setIsLoading] = useState(true);
-
-
-  // useEffect(() => {
-  //   // Check if the loading state is stored in memory
-  //   const loadingState = sessionStorage.getItem('loadingState');
-  //   if (loadingState) {
-  //     setIsLoading(JSON.parse(loadingState));
-  //   } else {
-  //     // Fetch data here
-  //     setTimeout(() => {
-  //       setIsLoading(false);
-  //       // Store the loading state in memory
-  //       sessionStorage.setItem('loadingState', JSON.stringify(false));
-  //     }, 3000);
-  //   }
-  // }, []);
-
-  // const defaultOptions = {
-  //   loop: true,
-  //   autoplay: true,
-  //   animationData: Paperplane,
-  //   rendererSettings: {
-  //     preserveAspectRatio: 'xMidYMid slice'
-  //   }
-  // };
-
   return (
     <div className='bg-primary-backgroud-blue'>
       <Head>
@@ -66,6 +33,7 @@ export default function Home(props: any) {
           <Card
             title={collectionLineChart.title}
             apiCollections={apiCollections}
+            // transaction={39}
             growth='2.6'
             trend={true}
           />
@@ -111,12 +79,21 @@ export default function Home(props: any) {
 }
 
 export async function getServerSideProps(context: any) {
-  const res = await axios.get('https://63de5b049fa0d60060fd41a5.mockapi.io/merchant-blpz/collections');
-  const apiCollections = res.data;
+  try {
+    const res = await axios.get('https://63de5b049fa0d60060fd41a5.mockapi.io/merchant-blpz/collections');
+    const apiCollections = res.data;
 
-  return {
-    props: {
-      apiCollections,
-    },
-  };
+    return {
+      props: { apiCollections },
+    };
+  } catch (error: any) {
+    console.error(error);
+    if (error.response && error.response.status === 504 || error.response && error.response.status === 503) {
+      context.res.writeHead(302, {
+        Location: '/error',
+      });
+      context.res.end();
+    }
+    return { props: {} };
+  }
 }
