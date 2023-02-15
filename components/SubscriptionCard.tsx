@@ -1,6 +1,6 @@
 import { subscribeButton, subscriptionData } from '@/constants/data'
 import React from 'react'
-import { formatterZero } from '@/constants/injector'
+import { formatterZero } from '@/constants/services'
 
 const SubscriptionCard = (props: any) => {
     const { info } = props;

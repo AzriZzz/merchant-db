@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { formatterDouble } from '@/constants/injector'
+import { formatterDouble } from '@/constants/services'
 
 const HorizontalChart = ({ item, delay }: any) => {
 

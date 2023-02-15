@@ -5,7 +5,7 @@ import Fpxpayout from './Fpxpayout'
 import Collection from './Collection'
 import { collectionLineChart, transactionChart, upcomingPayout, totalPayout, totalBill, cardState, totalPaid, performingCollection } from '@/constants/data'
 import { CardType } from '@/models/config'
-import { formatterDouble } from '@/constants/injector'
+import { formatterDouble } from '@/constants/services'
 
 // Turn off rendering during SSR
 const PieChart = dynamic(() => import('./PieChart'), {
