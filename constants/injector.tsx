@@ -58,7 +58,14 @@ export const maxCollection = (maxData: any[]) => {
 
 /**
  * Calculates the maximum value for the y-axis tick in a chart based on the input value.
- * The tick max is rounded up to the next multiple of the tick step value, which is determined by the number of digits in the input value.
+ * Example
+ * 1. The tick max is rounded up to the next multiple of the tick step value, which is determined by the number of digits in the input value.
+ * 2. Math.log10(value) returns the base 10 logarithm of value, which is 2.9661863325900626 for 926.60.
+ * 3. Math.floor(2.9661863325900626) returns the largest integer less than or equal to 2.9661863325900626, which is 2.
+ * 4. Math.pow(10, 2) returns the result of 10 raised to the power of 2, which is 100.
+ * 5. Math.ceil(value / tickStep) returns the smallest integer greater than or equal to the value divided by the tick step.
+ * 6. Multiplying the result by the tick step gives the next multiple of the tick step.
+ * 
  * @param value - The input value for which to calculate the y-axis tick max.
  * @returns The y-axis tick max value for the chart.
  */
@@ -68,9 +75,4 @@ export const getTickMax = (value: number) => {
   // Calculate the tick max by dividing the value by the tick step, rounding up, and multiplying by the tick step.
   const tickMax = Math.ceil(value / tickStep) * tickStep;
   return tickMax;
-
-  // Example
-  // Math.log10(value) returns the base 10 logarithm of value, which is 2.9661863325900626 for 926.60.
-  // Math.floor(2.9661863325900626) returns the largest integer less than or equal to 2.9661863325900626, which is 2.
-  // Math.pow(10, 2) returns the result of 10 raised to the power of 2, which is 100.
 }
