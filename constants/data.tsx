@@ -1,3 +1,7 @@
+export const storeName = {
+  name: 'Joy and Supply Store'
+}
+
 export const collectionLineChart = {
   title: 'Total Collections',
   button: 'View All',

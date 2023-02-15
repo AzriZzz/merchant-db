@@ -3,7 +3,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import Image from "next/image";
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import { menuFooterItems, menuItems } from '@/constants/data';
+import { menuFooterItems, menuItems, storeName } from '@/constants/data';
 
 
 const Sidebar = (props: any) => {
@@ -54,7 +54,7 @@ const Sidebar = (props: any) => {
           </div>
           <div className='p-[8px] w-full pl-0 font-bold flex flex-row justify-between'>
             <h6>
-              Joy and Supply Store
+              {storeName.name}
             </h6>
             <button className='cursor-pointer lg:hidden' onClick={() => props.setToggleNav(!props.toggleNav)}>
               <Image

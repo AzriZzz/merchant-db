@@ -6,7 +6,7 @@ const SubscriptionCard = (props: any) => {
     const { info } = props;
 
     // Card popularity behaviour
-    const cardPopularity = info.plan !== subscriptionData.standard.plan ? 'sub-card-popular' : 'sub-card-non-popular';
+    const cardPopularity = info.plan !== subscriptionData.standard.plan ? 'sub-card-non-popular' : 'sub-card-popular';
 
     // Current and Subscribe Button Behaviour
     const buttonBehaviour = info.plan === subscriptionData.basic.plan ? 'sub-card-btn-non-active' : 'sub-card-btn-active';

@@ -11,13 +11,12 @@
 }
 
 @layer components {
-
   .sub-card-popular {
-    @apply border border-neutral-white-smoke h-[449px]
+    @apply border-2 border-primary-blue h-[457px] -translate-y-2 lg:hover:-translate-y-4
   }
 
   .sub-card-non-popular {
-    @apply border-2 border-primary-blue h-[457px] -translate-y-2 lg:hover:-translate-y-4
+    @apply border border-neutral-white-smoke h-[449px]
   }
 
   .sub-card-btn-non-active {

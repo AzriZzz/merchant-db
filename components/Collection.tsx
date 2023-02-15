@@ -7,7 +7,7 @@ const Collection = (props: any) => {
     <div className='h-60'>
       <ul className='flex flex-col justify-between h-full'>
         {props.data.map((item: any, index: number) => (
-          // 'delay' value to set the timeout for the animation
+          // 'delay' value to set the timeout for the animation gap for each component called
           <HorizontalChart key={index} item={item} delay={index * 100}/>
         ))}
       </ul>
