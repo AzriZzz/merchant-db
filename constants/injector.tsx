@@ -68,4 +68,9 @@ export const getTickMax = (value: number) => {
   // Calculate the tick max by dividing the value by the tick step, rounding up, and multiplying by the tick step.
   const tickMax = Math.ceil(value / tickStep) * tickStep;
   return tickMax;
+
+  // Example
+  // Math.log10(value) returns the base 10 logarithm of value, which is 2.9661863325900626 for 926.60.
+  // Math.floor(2.9661863325900626) returns the largest integer less than or equal to 2.9661863325900626, which is 2.
+  // Math.pow(10, 2) returns the result of 10 raised to the power of 2, which is 100.
 }
