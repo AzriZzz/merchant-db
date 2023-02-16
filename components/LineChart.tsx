@@ -38,10 +38,9 @@ const LineChart = (props?: any) => {
     maxTick = getTickMax(maxCollections);
     stepSize = maxTick / 5; // get the stepsize level data
 
+    // this only example to find the forecast line chart
     // only for testing getting the collection only
     actualLine = props.dataset.map((item: { collection: number }) => item.collection);
-    
-    // this only example to find the forecast line chart
     forecastLine = actualLine.map(item => item - 100);
   }
 
