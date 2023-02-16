@@ -1,6 +1,7 @@
-import { subscribeButton, subscriptionData } from '@/constants/data'
+import { subscribeButton } from '@/constants/data'
 import React from 'react'
 import { formatterZero } from '@/constants/services'
+import { subscriptionData } from '@/constants/mock';
 
 const SubscriptionCard = (props: any) => {
     const { info } = props;

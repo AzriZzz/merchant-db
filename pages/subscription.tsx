@@ -1,6 +1,6 @@
 import Layout from '@/components/Layout'
 import SubscriptionCard from '@/components/SubscriptionCard'
-import { subscriptionData } from '@/constants/data'
+import { subscriptionData } from '@/constants/mock'
 import Head from 'next/head'
 import React from 'react'
 
@@ -16,7 +16,7 @@ const subscription = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout topBar="Subscription">
-        <div className=' mt-4'>
+        <div className='mt-4'>
           <p>Access to our rich analytics data by subscribing to your desired subscription plan.</p>
         </div>
 

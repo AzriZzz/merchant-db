@@ -45,7 +45,7 @@ const Card = (props: CardType) => {
               {props.title}
               {/* Add a conditional icon here */}
             </div>
-            <div className='font-bold text-primary-blue'>
+            <div className='p-2 font-bold transition-all duration-200 ease-in-out rounded-lg cursor-pointer text-primary-blue hover:bg-neutral-grey-smoke'>
               {/* Conditional statement based on See Details or View All */}
               {
                 props.title === collectionLineChart.title || 

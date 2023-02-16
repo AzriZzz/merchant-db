@@ -20,7 +20,7 @@ const Sidebar = (props: any) => {
   )
 
   const getSideItemClasses = (menu: any) => {
-    return classNames('flex flex-row items-center transition duration-1000 ease-in-out rounded-lg cursor-pointer hover:bg-primary-hover-blue hover:text-primary-blue',
+    return classNames('flex flex-row items-center transition duration-500 ease-in-out rounded-lg cursor-pointer hover:bg-primary-hover-blue hover:text-primary-blue',
       {
         ['text-primary-blue bg-primary-hover-blue']: activeMenu.id === menu.id
       })

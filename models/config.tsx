@@ -30,15 +30,15 @@ export interface CardType {
         value: number,
         color: string
     }[],
-    apiCollections?: [{
+    apiCollections?: {
         collection: string,
         createdAt: string,
         dateCollected: string,
         id: string
-    }],
+    }[],
     state?: string,
     performance?: {
-        store: string,
-        totalRevenue: number
+        store?: string,
+        totalRevenue?: number
     }[]
 }

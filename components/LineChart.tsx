@@ -31,7 +31,6 @@ const LineChart = (props?: any) => {
   let forecastLine = [240, 280, 300, 180, 150, 380];
 
   if (props.dataset !== undefined) {
-
     const sortedData = sortDataAscending(props.dataset);
     labels = renameDate(sortedData);
     const maxCollections = maxCollection(props.dataset);

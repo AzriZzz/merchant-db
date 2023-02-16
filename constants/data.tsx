@@ -57,78 +57,7 @@ export const performingCollection = {
   eWallet: 'E-Wallet'
 }
 
-export const storePerformance = [
-  {
-    store: 'TUITION CENTER A (MONTHLY)',
-    totalRevenue: 10000,
-    percentage: 45,
-    width: 100
-  },
-  {
-    store: 'SHREDDER2U.COM.MY',
-    totalRevenue: 7500,
-    percentage: 15,
-    width: 85
 
-  },
-  {
-    store: 'EZ BOUTIQUE',
-    totalRevenue: 4000,
-    percentage: 7,
-    width:75
-
-  },
-  {
-    store: 'BOOKSTORE SHOPIFY',
-    totalRevenue: 3000,
-    percentage: 5,
-    width: 55
-
-  },
-  {
-    store: 'MARKETING WITH JOY',
-    totalRevenue: 2500,
-    percentage: 4,
-    width: 45
-
-  },
-]
-
-export const subscriptionData = {
-  basic: {
-    plan: 'Basic',
-    price: 100,
-    renewal: 'per month',
-    features: [
-      'Latest 100 customer data',
-      'Process',
-      'Feature 3'
-    ],
-  },
-  standard: {
-    plan: 'Standard',
-    price: 500,
-    renewal: 'per month',
-    features: [
-      'Latest 100 customer data',
-      'Process',
-      'Feature 3',
-      'Feature Hidden 4'
-    ]
-  },
-  super: {
-    plan: 'Super',
-    price: 1000,
-    renewal: 'per month',
-    features: [
-      'Latest 100 customer data',
-      'Process',
-      'Feature 3',
-      'Feature Hidden 4',
-      'Feature Hidden 5'
-    ]
-  }
-}
 
 export const chartData = [
   {

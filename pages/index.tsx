@@ -1,11 +1,13 @@
 import Head from 'next/head'
 import Layout from '@/components/Layout'
 import Card from '@/components/Card'
-import { collectionLineChart, transactionChart, upcomingPayout, collectionPieChart, paymentMethodsPieChart, totalPayout, chartData, collections, performingCollection, storePerformance } from '@/constants/data';
+import { collectionLineChart, transactionChart, upcomingPayout, collectionPieChart, paymentMethodsPieChart, totalPayout, chartData, collections, performingCollection } from '@/constants/data';
 import axios from 'axios';
+import { mockChartOne, mockChartTwo, storePerformance } from '@/constants/mock';
 
 export default function Home(props: any) {
   const { apiCollections } = props;
+  
   return (
     <div className='bg-primary-backgroud-blue'>
       <Head>
@@ -33,18 +35,19 @@ export default function Home(props: any) {
           <Card
             title={collectionLineChart.title}
             apiCollections={apiCollections}
-            // transaction={39}
             growth='2.6'
             trend={true}
           />
           <Card
             title={transactionChart.title}
+            apiCollections={mockChartOne}
             transaction={39}
             growth='2.6'
             trend={false}
           />
           <Card
             title={totalPayout.title}
+            apiCollections={mockChartTwo}
             payouts={25000}
             growth='5.6'
             trend={true}
