@@ -88,7 +88,7 @@ const Card = (props: CardType) => {
 
         {/* Below is the body, where we show most data, charts and other stuff */}
         <div>
-          {/* Feed API data to the line chart to make it dynamic */}
+          {/* Feed API data to the line chart to make it dynamic. */}
 
           {/* Line Chart Stuff */}
           { props.transaction || props.title === collectionLineChart.title || props.payouts ? (<LineChart dataset={props.apiCollections} />) : ''}
