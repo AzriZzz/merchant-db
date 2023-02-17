@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import dynamic from 'next/dynamic'
-import LineChart from './LineChart'
-import Fpxpayout from './Fpxpayout'
 import Collection from './Collection'
 import { collectionLineChart, transactionChart, upcomingPayout, totalPayout, totalBill, cardState, totalPaid, performingCollection } from '@/constants/data'
 import { CardType } from '@/models/config'
 import { formatterDouble } from '@/constants/services'
+import Fpxpayout from './Fpxpayout'
+import LineChart from '../chart/LineChart'
 
 // Turn off rendering during SSR
-const PieChart = dynamic(() => import('./PieChart'), {
+const PieChart = dynamic(() => import('../chart/PieChart'), {
   ssr: false,
 })
 

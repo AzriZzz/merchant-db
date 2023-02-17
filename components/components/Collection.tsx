@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react'
-import HorizontalChart from './HorizontalChart';
+import React from 'react'
+import HorizontalChart from '../chart/HorizontalChart';
 
 const Collection = (props: any) => {
   

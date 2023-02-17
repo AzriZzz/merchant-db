@@ -1,9 +1,9 @@
 import Head from 'next/head'
-import Layout from '@/components/Layout'
-import Card from '@/components/Card'
+import Layout from '@/components/layout/Layout'
 import { collectionLineChart, transactionChart, upcomingPayout, collectionPieChart, paymentMethodsPieChart, totalPayout, chartData, collections, performingCollection } from '@/constants/data';
 import axios from 'axios';
 import { mockChartOne, mockChartTwo, storePerformance } from '@/constants/mock';
+import Card from '@/components/components/Card';
 
 export default function Home(props: any) {
   const { apiCollections } = props;

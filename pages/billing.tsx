@@ -1,5 +1,5 @@
-import Card from '@/components/Card'
-import Layout from '@/components/Layout'
+import Card from '@/components/components/Card'
+import Layout from '@/components/layout/Layout'
 import { totalPayout, totalBill, totalPaid, performingCollection } from '@/constants/data'
 import { storePerformance } from '@/constants/mock'
 import Head from 'next/head'

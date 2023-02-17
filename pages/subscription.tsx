@@ -1,5 +1,5 @@
-import Layout from '@/components/Layout'
-import SubscriptionCard from '@/components/SubscriptionCard'
+import Layout from '@/components/layout/Layout'
+import SubscriptionCard from '@/components/components/SubscriptionCard'
 import { subscriptionData } from '@/constants/mock'
 import Head from 'next/head'
 import React from 'react'
