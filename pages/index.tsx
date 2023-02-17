@@ -2,11 +2,11 @@ import Head from 'next/head'
 import Layout from '@/components/layout/Layout'
 import { collectionLineChart, transactionChart, upcomingPayout, collectionPieChart, paymentMethodsPieChart, totalPayout, chartData, collections, performingCollection } from '@/constants/data';
 import axios from 'axios';
-import { mockChartOne, mockChartTwo, storePerformance } from '@/constants/mock';
+import { apiChartData, mockChartOne, mockChartTwo, storePerformance } from '@/constants/mock';
 import Card from '@/components/components/Card';
 
 export default function Home(props: any) {
-  const { apiCollections } = props;
+  // const { apiCollections } = props;
   
   return (
     <div className='bg-primary-backgroud-blue'>
@@ -34,7 +34,7 @@ export default function Home(props: any) {
           {/* API Call from mockapi.io */}
           <Card
             title={collectionLineChart.title}
-            apiCollections={apiCollections}
+            apiCollections={apiChartData}
             growth='2.6'
             trend={true}
           />
@@ -81,22 +81,22 @@ export default function Home(props: any) {
   )
 }
 
-export async function getServerSideProps(context: any) {
-  try {
-    const res = await axios.get('https://63de5b049fa0d60060fd41a5.mockapi.io/merchant-blpz/collections');
-    const apiCollections = res.data;
+// export async function getServerSideProps(context: any) {
+//   try {
+//     const res = await axios.get('https://63de5b049fa0d60060fd41a5.mockapi.io/merchant-blpz/collections');
+//     const apiCollections = res.data;
 
-    return {
-      props: { apiCollections },
-    };
-  } catch (error: any) {
-    console.error(error);
-    if (error.response && error.response.status === 504 || error.response && error.response.status === 503) {
-      context.res.writeHead(302, {
-        Location: '/error',
-      });
-      context.res.end();
-    }
-    return { props: {} };
-  }
-}
+//     return {
+//       props: { apiCollections },
+//     };
+//   } catch (error: any) {
+//     console.error(error);
+//     if (error.response && error.response.status === 504 || error.response && error.response.status === 503) {
+//       context.res.writeHead(302, {
+//         Location: '/error',
+//       });
+//       context.res.end();
+//     }
+//     return { props: {} };
+//   }
+// }
