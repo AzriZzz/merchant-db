@@ -36,7 +36,7 @@ const Layout = ({ children, topBar }: any) => {
       {toggleNav && (
         <div className='fixed top-0 bottom-0 left-0 right-0 z-10 transition duration-700 ease-in-out opacity-30 bg-neutral-black'></div>
       )}
-      <div className='flex-1 overflow-auto lg:p-4 lg:pt-6 '>
+      <div className='flex-1 h-screen overflow-auto lg:p-4 lg:pt-6'>
         {/* Topbar */}
         <div className='flex flex-col lg:justify-between lg:flex-row space-between'>
 
