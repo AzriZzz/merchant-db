@@ -73,6 +73,39 @@ export const subscriptionData = {
   }
 }
 
+export const apiChartData = [
+  {
+    createdAt: "2023-02-04T13:57:54.185Z",
+    collection: "864.02",
+    dateCollected: "2022-06-29T01:02:30.641Z",
+    id: "2"
+  },
+  {
+    createdAt: "2023-02-04T13:57:54.185Z",
+    collection: "962.96",
+    dateCollected: "2022-07-04T12:39:13.918Z",
+    id: "3"
+  },
+  {
+    createdAt: "2023-02-04T13:57:54.185Z",
+    collection: "227.71",
+    dateCollected: "2022-08-26T20:22:17.468Z",
+    id: "5"
+  },
+  {
+    createdAt: "2023-02-04T13:57:54.185Z",
+    collection: "265.10",
+    dateCollected: "2022-10-07T02:57:08.735Z",
+    id: "1"
+  },
+  {
+    createdAt: "2023-02-04T13:57:54.185Z",
+    collection: "614.81",
+    dateCollected: "2022-12-11T03:22:39.730Z",
+    id: "4"
+  }
+]
+
 export const mockChartOne = [
   { 
     collection: '490', 

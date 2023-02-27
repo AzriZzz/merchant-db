@@ -1,8 +1,9 @@
 import classNames from 'classnames';
 import Image from 'next/image'
 import React, { useState } from 'react'
-import NavHeader from './NavHeader';
-import Sidebar from './Sidebar'
+import NavHeader from '../navigation/NavHeader';
+import Sidebar from '../navigation/Sidebar'
+import { AnimatePresence, motion } from "framer-motion";
 
 const Layout = ({ children, topBar }: any) => {
 
@@ -52,7 +53,7 @@ const Layout = ({ children, topBar }: any) => {
 
           <div className='flex items-center px-4 text-sm lg:p-0'>
             <div className={classNames(buttonWrapper)} onClick={() => clickDropdown(dropdown)}>
-              <button className='pl-[10px] pr-[5px] py-[9px]'>                
+              <button className='pl-[10px] pr-[5px] py-[9px]'>
                 <Image
                   src="/images/icons/calendar.svg"
                   alt="Close Icon"
@@ -80,7 +81,16 @@ const Layout = ({ children, topBar }: any) => {
           </div>
         </div>
         <div className='px-4 lg:px-0 mb-14 lg:mb-0'>
-          {children}
+          <AnimatePresence mode="wait">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3 }}
+            >
+              {children}
+            </motion.div>
+          </AnimatePresence>
         </div>
       </div>
     </div>
