@@ -76,3 +76,14 @@ export const getTickMax = (value: number) => {
   const tickMax = Math.ceil(value / tickStep) * tickStep;
   return tickMax;
 }
+
+/**
+ * Finds the total collection value in the provided array of objects
+ * @param data - An array of objects containing a 'collection' property
+ * @returns The total 'collection' value in the array
+ */
+export const findTotalCollection = (data: any) => {
+  return data.reduce((acc: any, item: any) => {
+    return acc + parseFloat(item.collection);
+  }, 0);
+}

@@ -1,12 +1,12 @@
 import React from 'react'
 import HorizontalChart from '../chart/HorizontalChart';
 
-const Collection = (props: any) => {
+const Horizontal = (props: any) => {
   
   return (
     <div className='h-60'>
       <ul className='flex flex-col justify-between h-full'>
-        {props.data.map((item: any, index: number) => (
+        {props.dataset.map((item: any, index: number) => (
           // 'delay' value to set the timeout for the animation gap for each component called
           <HorizontalChart key={index} item={item} delay={index * 100}/>
         ))}
@@ -15,4 +15,4 @@ const Collection = (props: any) => {
   )
 }
 
-export default Collection
+export default Horizontal

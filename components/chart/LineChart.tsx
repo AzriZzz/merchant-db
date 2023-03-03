@@ -71,10 +71,16 @@ const LineChart = (props?: any) => {
         min: 0,
         max: maxTick,
         ticks: {
-          stepSize: stepSize
+          stepSize: stepSize,
+          beginAtZero: true,
         }
       }
-    }
+    },
+    elements: {
+      line: {
+        tension: 0.0, // Set the lineTension property to 0.3
+      },
+    },
   };
 
   const data = {
@@ -103,7 +109,7 @@ const LineChart = (props?: any) => {
   };
 
   return (
-    <div className='flex h-48 '>
+    <div className='flex h-48 mt-2.5'>
       <Line options={options} data={data} />
     </div>
   )

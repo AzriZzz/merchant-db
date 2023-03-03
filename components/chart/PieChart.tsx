@@ -55,7 +55,7 @@ const PieChart = ( props: any) => {
   }, [chartDiv, props.dataset]);
 
   return (
-    <div className='-translate-y-12' style={{ width: "90%", height: "190px", margin: "auto", }}>
+    <div style={{ width: "90%", height: "190px", margin: "auto", }}>
 
       {/* Pie Chart Render */}
       <div className='overflow-hidden ' id={'chartDiv'+props.id} style={{ width: "100%", height: "100%" }}></div>

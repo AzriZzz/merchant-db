@@ -10,28 +10,70 @@ export const storePerformance = [
     totalRevenue: 7500,
     percentage: 15,
     width: 85
-
   },
   {
     store: 'EZ BOUTIQUE',
     totalRevenue: 4000,
     percentage: 7,
-    width:75
-
+    width: 75
   },
   {
     store: 'BOOKSTORE SHOPIFY',
     totalRevenue: 3000,
     percentage: 5,
     width: 55
-
   },
   {
     store: 'MARKETING WITH JOY',
     totalRevenue: 2500,
     percentage: 4,
     width: 45
+  },
+]
 
+export const storePerformance2 = [
+  {
+    store: 'TUITION CENTER A (MONTHLY)',
+    totalRevenue: 10000,
+  },
+  {
+    store: 'SHREDDER2U.COM.MY',
+    totalRevenue: 7500,
+  },
+  {
+    store: 'EZ BOUTIQUE',
+    totalRevenue: 4000,
+  },
+  {
+    store: 'BOOKSTORE SHOPIFY',
+    totalRevenue: 3000,
+  },
+  {
+    store: 'MARKETING WITH JOY',
+    totalRevenue: 2500,
+  },
+]
+
+export const HorizontalConfig = [
+  {
+    percentage: 45,
+    width: 100
+  },
+  {
+    percentage: 15,
+    width: 85
+  },
+  {
+    percentage: 7,
+    width: 75
+  },
+  {
+    percentage: 5,
+    width: 55
+  },
+  {
+    percentage: 4,
+    width: 35
   },
 ]
 
@@ -107,67 +149,114 @@ export const apiChartData = [
 ]
 
 export const mockChartOne = [
-  { 
-    collection: '490', 
-    createdAt: '2022-07-01T00:00:00Z', 
-    dateCollected: '2022-07-01T00:00:00Z', 
+  {
+    collection: '490',
+    createdAt: '2022-07-01T00:00:00Z',
+    dateCollected: '2022-07-01T00:00:00Z',
     id: '1'
   },
-  { 
-    collection: '200', 
-    createdAt: '2022-07-05T00:00:00Z', 
-    dateCollected: '2022-07-05T00:00:00Z', 
+  {
+    collection: '200',
+    createdAt: '2022-07-05T00:00:00Z',
+    dateCollected: '2022-07-05T00:00:00Z',
     id: '2'
   },
-  { 
-    collection: '100', 
-    createdAt: '2022-07-10T00:00:00Z', 
-    dateCollected: '2022-07-10T00:00:00Z', 
+  {
+    collection: '100',
+    createdAt: '2022-07-10T00:00:00Z',
+    dateCollected: '2022-07-10T00:00:00Z',
     id: '3'
   },
-  { 
-    collection: '380', 
-    createdAt: '2022-07-15T00:00:00Z', 
-    dateCollected: '2022-07-15T00:00:00Z', 
+  {
+    collection: '380',
+    createdAt: '2022-07-15T00:00:00Z',
+    dateCollected: '2022-07-15T00:00:00Z',
     id: '4'
   },
-  { 
-    collection: '150', 
-    createdAt: '2022-07-20T00:00:00Z', 
-    dateCollected: '2022-07-20T00:00:00Z', 
+  {
+    collection: '150',
+    createdAt: '2022-07-20T00:00:00Z',
+    dateCollected: '2022-07-20T00:00:00Z',
     id: '5'
   },
 ];
 
 export const mockChartTwo = [
-  { 
-    collection: '4000', 
-    createdAt: '2022-07-01T00:00:00Z', 
-    dateCollected: '2022-07-01T00:00:00Z', 
+  {
+    collection: '4000',
+    createdAt: '2022-07-01T00:00:00Z',
+    dateCollected: '2022-07-01T00:00:00Z',
     id: '1'
   },
-  { 
-    collection: '2840', 
-    createdAt: '2022-07-05T00:00:00Z', 
-    dateCollected: '2022-07-05T00:00:00Z', 
+  {
+    collection: '2840',
+    createdAt: '2022-07-05T00:00:00Z',
+    dateCollected: '2022-07-05T00:00:00Z',
     id: '2'
   },
-  { 
-    collection: '1425', 
-    createdAt: '2022-07-10T00:00:00Z', 
-    dateCollected: '2022-07-10T00:00:00Z', 
+  {
+    collection: '1425',
+    createdAt: '2022-07-10T00:00:00Z',
+    dateCollected: '2022-07-10T00:00:00Z',
     id: '3'
   },
-  { 
-    collection: '6530', 
-    createdAt: '2022-07-15T00:00:00Z', 
-    dateCollected: '2022-07-15T00:00:00Z', 
+  {
+    collection: '6530',
+    createdAt: '2022-07-15T00:00:00Z',
+    dateCollected: '2022-07-15T00:00:00Z',
     id: '4'
   },
-  { 
-    collection: '5522', 
-    createdAt: '2022-07-20T00:00:00Z', 
-    dateCollected: '2022-07-20T00:00:00Z', 
+  {
+    collection: '5522',
+    createdAt: '2022-07-20T00:00:00Z',
+    dateCollected: '2022-07-20T00:00:00Z',
     id: '5'
   }
 ];
+
+export const collections2 = [
+  {
+    item: "Active Collection",
+    value: 1600
+  },
+  {
+    item: "Inactive Collection",
+    value: 1400
+  }
+];
+
+export const colorCollection = [
+  {
+    color: "#3784F4"
+  },
+  {
+    color: "#E8E8E8"
+  }
+]
+
+export const chartData2 = [
+  {
+    item: "Online Banking",
+    value: 9900.10,
+  },
+  {
+    item: "Cards",
+    value: 2330.20,
+  },
+  {
+    item: "E-Wallet",
+    value: 900.00,
+  }
+]
+
+export const colorPaymentMethod = [
+  {
+    color: "#679DEB"
+  },
+  {
+    color: "#AECFFF"
+  },
+  {
+    color: "#84B6FF"
+  }
+]

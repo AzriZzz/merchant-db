@@ -27,6 +27,8 @@ export const totalPaid = {
   amount: 10000
 }
 
+export const buttonTitle = ['View All', 'See details'];
+
 export const cardState = ['Simple', 'Advanced']
 
 export const upcomingPayout = {
@@ -50,13 +52,12 @@ export const paymentMethodsPieChart = {
   eWallet: 'E-Wallet'
 }
 
-export const performingCollection = {
-  title: 'Top 5 Performing Collections',
-  onlineBanking: 'Online Banking',
-  cards: 'Cards',
-  eWallet: 'E-Wallet'
-}
-
+export const TOP5PERFORMINGCOLLECTIONS = 'Top 5 Performing Collections';
+export const ACTIVENONACTIVECOLLECTION = 'Active vs. Inactive Collections';
+export const COLLECTIONPAYMENTMETHOD = 'Collections by Payment Methods';
+export const TOTALCOLLECTIONS = 'Total Collections';
+export const TOTALTRANSACTIONS = 'Total Transactions';
+export const TOTALPAYOUT = 'Total Payout';
 
 
 export const chartData = [
@@ -77,13 +78,17 @@ export const chartData = [
 export const collections = [
   {
     item: "Active Collection",
-    value: 1600, color: "#3784F4"
+    value: 1600, 
+    color: "#3784F4"
   },
   {
     item: "Inactive Collection",
-    value: 1400, color: "#E8E8E8"
+    value: 1400, 
+    color: "#E8E8E8"
   }
 ];
+
+
 
 export const subscribeButton = {
   current: 'Current Plan',

@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Layout from '@/components/layout/Layout'
-import { collectionLineChart, transactionChart, upcomingPayout, collectionPieChart, paymentMethodsPieChart, totalPayout, chartData, collections, performingCollection } from '@/constants/data';
+import { collectionLineChart, transactionChart, upcomingPayout, collectionPieChart, paymentMethodsPieChart, totalPayout, chartData, collections, TOP5PERFORMINGCOLLECTIONS } from '@/constants/data';
 import axios from 'axios';
 import { apiChartData, mockChartOne, mockChartTwo, storePerformance } from '@/constants/mock';
 import Card from '@/components/components/Card';
@@ -56,10 +56,10 @@ export default function Home(props: any) {
             title={upcomingPayout.title}
             fpxPayout={1600}
           />
-          <Card
-            title={performingCollection.title}
+          {/* <Card
+            title={TOP5PERFORMINGCOLLECTIONS}
             performance={storePerformance}
-          />
+          /> */}
           <Card
             title={collectionPieChart.title}
             dataset={collections}

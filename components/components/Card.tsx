@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import dynamic from 'next/dynamic'
 import Collection from './Collection'
-import { collectionLineChart, transactionChart, upcomingPayout, totalPayout, totalBill, cardState, totalPaid, performingCollection } from '@/constants/data'
-import { CardType } from '@/models/config'
-import { formatterDouble } from '@/constants/services'
+import { collectionLineChart, transactionChart, upcomingPayout, totalPayout, totalBill, cardState, totalPaid } from '@/constants/data'
+import { CardType } from '@/models/interface'
+import { findTotalCollection, formatterDouble } from '@/constants/services'
 import Fpxpayout from './Fpxpayout'
 import LineChart from '../chart/LineChart'
 
@@ -11,12 +11,6 @@ import LineChart from '../chart/LineChart'
 const PieChart = dynamic(() => import('../chart/PieChart'), {
   ssr: false,
 })
-
-function findTotalCollection(data: any) {
-  return data.reduce((acc: any, item: any) => {
-    return acc + parseFloat(item.collection);
-  }, 0);
-}
 
 const Card = (props: CardType) => {
   const [total, setTotal] = useState(0);
@@ -100,7 +94,7 @@ const Card = (props: CardType) => {
           { props.pieChart !== undefined && (<PieChart dataset={props.dataset} id={props.pieId} />)}
 
           {/* Performing Collection */}
-          { props.performance !== undefined && (<Collection data={props.performance} />)}
+          { props.performance !== undefined && (<Collection dataset={props.performance} />)}
 
 
         </div>
