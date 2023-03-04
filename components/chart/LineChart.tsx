@@ -110,7 +110,7 @@ const LineChart = (props?: any) => {
 
   return (
     <div className='flex h-48 mt-2.5'>
-      <Line options={options} data={data} />
+      <Line id={props.chartId} options={options} data={data} />
     </div>
   )
 

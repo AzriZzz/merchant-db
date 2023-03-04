@@ -2,7 +2,7 @@ import Card from '@/components/components/Card'
 import Layout from '@/components/layout/Layout'
 import { TOP5PERFORMINGCOLLECTIONS, buttonTitle, ACTIVENONACTIVECOLLECTION, COLLECTIONPAYMENTMETHOD, TOTALCOLLECTIONS, TOTALTRANSACTIONS, TOTALPAYOUT, UPCOMINGFPXPAYOUT, TOTALPAID } from '@/constants/data'
 import { apiChartData, chartData, collectionsActiveNon, colorCollection, colorPaymentMethod, fpxMockData, horizontalConfig, mockChartOne, mockChartTwo, storePerformance } from '@/constants/mock'
-import { findTotalCollection, formatterDouble } from '@/constants/serviceUtils'
+import uuidv4, { findTotalCollection, formatterDouble } from '@/constants/serviceUtils'
 import Head from 'next/head'
 import React from 'react'
 
@@ -21,6 +21,7 @@ const Billing = () => {
     growth: 2.6,
     isTrend: true,
     line: apiChartData,
+    chartId: uuidv4()
   }
 
   // Top 5 Performing Collections Card
@@ -34,19 +35,25 @@ const Billing = () => {
   });
 
   const performingCollectionCard = {
-    simple: false,
+    isSimple: false,
     title: TOP5PERFORMINGCOLLECTIONS,
     horizontal: topPerformance
   }
 
   // Total Paid Card
-
   const totalPaidCard = {
     isSimple: true,
     title: TOTALPAID,
     isCurrency: true,
     total: 10000,
     isPaid: true
+  }
+
+  // Total Collection Card Simple
+  const totalCollectionCardSimple = {
+    isSimple: true,
+    title: TOTALCOLLECTIONS,
+    total: 10,
   }
 
   return (
@@ -62,14 +69,19 @@ const Billing = () => {
       <Layout classNames="flex flex-row" topBar="Billing">
         <div className='flex flex-wrap gap-x-5 md:justify-center lg:justify-start'>
           <Card
-            data={totalCollectionCard}
+            card={totalCollectionCard}
           />
           <Card
-            data={performingCollectionCard}
+            card={performingCollectionCard}
           />
-          <Card
-            data={totalPaidCard}
-          />
+          <div className='simple-card'>
+            <Card
+              card={totalPaidCard}
+            />
+            <Card
+              card={totalCollectionCardSimple}
+            />
+          </div>
         </div>
       </Layout>
     </div>

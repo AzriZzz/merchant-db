@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from 'uuid';
+
 /**
  * Returns a number formatter that formats a number with two decimal places as a currency in Malaysian Ringgit (MYR).
  * @type {Intl.NumberFormat}
@@ -94,7 +96,6 @@ export const findTotalCollection = (data: any) => {
  * @param month - A month that accept '"numeric" | "2-digit" | "long" | "short" | "narrow" |
  * @returns A string in the format "DD MMM YYYY" / "DD MMMM YYYY"
 */
-
 export const formatDate  = (dateString: string, month: any) => {
   const formatMonth = month;
   const date = new Date(dateString);
@@ -102,3 +103,10 @@ export const formatDate  = (dateString: string, month: any) => {
   const formattedDate = date.toLocaleDateString('en-GB', options);
   return formattedDate;
 };
+
+/**
+ * Exported function that returns a new UUIDv4.
+ * 
+ * @returns {string} - A new UUIDv4 string.
+ */
+export default uuidv4;

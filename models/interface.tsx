@@ -14,39 +14,10 @@ export interface Navheader {
     toggleNav: boolean
 }
 
-export interface CardType {
-    title?: string,
-    transaction?: number,
-    amount?: number,
-    payouts?: number,
-    growth?: string,
-    trend?: boolean,
-    fpxPayout?: number,
-    pieChart?: boolean,
-    displayOnly?: boolean,
-    pieId?: number,
-    dataset?: {
-        item: string,
-        value: number,
-        color: string
-    }[],
-    apiCollections?: {
-        collection: string,
-        createdAt: string,
-        dateCollected: string,
-        id: string
-    }[],
-    state?: string,
-    performance?: {
-        store?: string,
-        totalRevenue?: number
-    }[]
-}
-
 export interface ICard {
-    data: {
-        isSimple?: boolean
-        title?: string,
+    card: {
+        isSimple: boolean,
+        title: string,
         substitle?: string,
         isCollapse?: boolean,
         buttonTitle?: string,
@@ -57,12 +28,12 @@ export interface ICard {
         isSubCollectionSettlement?: boolean,
         growth?: number,
         isTrend?: boolean,
-        pie?: IPie[],
-        pieId?: number
-        horizontal?: IHorizontal[],
-        line?: ILine[]
         upcoming?: IUpcoming
-    }
+        pie?: IPie[],
+        horizontal?: IHorizontal[],
+        line?: ILine[],
+        chartId?: string
+    } & (ReturnType<typeof hasChartIdData> extends true ? { chartId: string } : {});
 }
 
 export interface IPie {
@@ -93,4 +64,9 @@ export interface IUpcoming {
 export interface IColList {
     collection: string,
     collectionDate: string
+}
+
+// using this return type in the conditional type to require the chartId property if hasChartIdData returns true, and leave it optional otherwise.
+function hasChartIdData(data: any): data is { pie?: any[]; horizontal?: any[]; line?: any[]; chartId: string } {
+    return !!data.pie || !!data.horizontal || !!data.line;
 }

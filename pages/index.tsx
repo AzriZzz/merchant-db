@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Layout from '@/components/layout/Layout'
 import { TOP5PERFORMINGCOLLECTIONS, UPCOMINGFPXPAYOUT, buttonTitle, TOTALPAYOUT, TOTALTRANSACTIONS, TOTALCOLLECTIONS, COLLECTIONPAYMENTMETHOD, ACTIVENONACTIVECOLLECTION } from '@/constants/data';
 import { apiChartData, chartData, collectionsActiveNon, colorCollection, colorPaymentMethod, fpxMockData, horizontalConfig, mockChartOne, mockChartTwo, storePerformance } from '@/constants/mock';
-import { findTotalCollection, formatterDouble } from '@/constants/serviceUtils';
+import uuidv4, { findTotalCollection, formatterDouble } from '@/constants/serviceUtils';
 import Card from '@/components/components/Card';
 
 export default function Home() {
@@ -30,6 +30,7 @@ export default function Home() {
     growth: 5.6,
     isTrend: false,
     line: mockChartTwo,
+    chartId: uuidv4()
   }
 
   // Total Transaction
@@ -43,6 +44,7 @@ export default function Home() {
     growth: 2.9,
     isTrend: false,
     line: mockChartOne,
+    chartId: uuidv4()
   }
 
   // Total Collection
@@ -56,6 +58,7 @@ export default function Home() {
     growth: 2.6,
     isTrend: true,
     line: apiChartData,
+    chartId: uuidv4()
   }
 
   // Collections by Payment Methods
@@ -68,10 +71,10 @@ export default function Home() {
   });
 
   const collectionPaymentCard = {
-    simple: false,
+    isSimple: false,
     title: COLLECTIONPAYMENTMETHOD,
     pie: newPayment,
-    pieId: 0
+    chartId: uuidv4()
   }
 
   // Active vs. Inactive Collection
@@ -84,10 +87,10 @@ export default function Home() {
   });
 
   const activeNonActiveCard = {
-    simple: false,
+    isSimple: false,
     title: ACTIVENONACTIVECOLLECTION,
     pie: newCollections,
-    pieId: 1
+    chartId: uuidv4()
   }
 
   // Top 5 Performing Collections
@@ -101,9 +104,10 @@ export default function Home() {
   });
 
   const performingCollectionCard = {
-    simple: false,
+    isSimple: false,
     title: TOP5PERFORMINGCOLLECTIONS,
-    horizontal: topPerformance
+    horizontal: topPerformance,
+    chartId: uuidv4()
   }
 
   return (
@@ -119,27 +123,13 @@ export default function Home() {
 
       <Layout topBar="Overview Dashboard">
         <div className='flex flex-wrap gap-x-5 md:justify-center lg:justify-start'>
-          <Card
-            data={totalCollectionCard}
-          />
-          <Card
-            data={totalTransactionCard}
-          />
-          <Card
-            data={upcomingPayoutCard}
-          />
-          <Card
-            data={totalPayoutCard}
-          />
-          <Card
-            data={performingCollectionCard}
-          />
-          <Card
-            data={activeNonActiveCard}
-          />
-          <Card
-            data={collectionPaymentCard}
-          />
+          <Card card={totalCollectionCard} />
+          <Card card={totalTransactionCard} />
+          <Card card={upcomingPayoutCard} />
+          <Card card={totalPayoutCard} />
+          <Card card={performingCollectionCard} />
+          <Card card={activeNonActiveCard} />
+          <Card card={collectionPaymentCard}/>
         </div>
       </Layout>
       {/* )} */}

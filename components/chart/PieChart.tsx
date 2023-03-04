@@ -18,12 +18,9 @@ const PieChart = ( props: any) => {
     chart.align = "center";
     chart.valign = "middle";
 
-
     let series = chart.series.push(new am4charts.PieSeries3D());
     series.dataFields.value = "value";
     series.dataFields.category = "item";
-
-
     series.slices.template.propertyFields.fill = "color";
     series.ticks.template.disabled = true;
     series.alignLabels = false;
@@ -34,7 +31,7 @@ const PieChart = ( props: any) => {
     series.depth = 10;
     series.angle = 20;
 
-    // put outside the chart if the scale too small
+    // put outside the chart if the scale too small - radius
     series.labels.template.adapter.add("radius", function (radius, target) {
       if (target.dataItem && (target.dataItem.values.value.percent < 10)) {
         return 0;
@@ -42,6 +39,7 @@ const PieChart = ( props: any) => {
       return radius;
     });
 
+    // put outside the chart if the scale too small - fill
     series.labels.template.adapter.add("fill", function (color, target) {
       if (target.dataItem && (target.dataItem.values.value.percent < 10)) {
         return am4core.color("#000");
@@ -56,16 +54,14 @@ const PieChart = ( props: any) => {
 
   return (
     <div style={{ width: "90%", height: "190px", margin: "auto", }}>
-
       {/* Pie Chart Render */}
       <div className='overflow-hidden ' id={'chartDiv'+props.id} style={{ width: "100%", height: "100%" }}></div>
-
       {/* Informatin Render */}
       <ul className='flex flex-row justify-between mt-4 text-xs'>
         {
           props.dataset?.map( ({item, color, value}: any) => (
             <List key={item} item={item} color={color} value={value} id={props.id} />
-          ) )
+          ))
         }
       </ul>
     </div>
