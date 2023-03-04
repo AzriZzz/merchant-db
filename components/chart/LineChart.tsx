@@ -10,7 +10,7 @@ import {
   Legend,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
-import { getTickMax, maxCollection, renameDate, sortDataAscending } from '@/constants/services';
+import { getTickMax, maxCollection, renameDate, sortDataAscending } from '@/constants/serviceUtils';
 
 ChartJS.register(
   CategoryScale,

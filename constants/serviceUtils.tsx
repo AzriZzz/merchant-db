@@ -87,3 +87,18 @@ export const findTotalCollection = (data: any) => {
     return acc + parseFloat(item.collection);
   }, 0);
 }
+
+/**
+ * Formats a date string in the format "YYYY-MM-DDTHH:mm:ssZ" to the format "DD MMM YYYY"
+ * @param dateString - A date string in the format "YYYY-MM-DDTHH:mm:ssZ"
+ * @param month - A month that accept '"numeric" | "2-digit" | "long" | "short" | "narrow" |
+ * @returns A string in the format "DD MMM YYYY" / "DD MMMM YYYY"
+*/
+
+export const formatDate  = (dateString: string, month: any) => {
+  const formatMonth = month;
+  const date = new Date(dateString);
+  const options: Intl.DateTimeFormatOptions = { day: 'numeric', month: formatMonth, year: 'numeric' };
+  const formattedDate = date.toLocaleDateString('en-GB', options);
+  return formattedDate;
+};

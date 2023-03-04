@@ -2,39 +2,6 @@ export const storePerformance = [
   {
     store: 'TUITION CENTER A (MONTHLY)',
     totalRevenue: 10000,
-    percentage: 45,
-    width: 100
-  },
-  {
-    store: 'SHREDDER2U.COM.MY',
-    totalRevenue: 7500,
-    percentage: 15,
-    width: 85
-  },
-  {
-    store: 'EZ BOUTIQUE',
-    totalRevenue: 4000,
-    percentage: 7,
-    width: 75
-  },
-  {
-    store: 'BOOKSTORE SHOPIFY',
-    totalRevenue: 3000,
-    percentage: 5,
-    width: 55
-  },
-  {
-    store: 'MARKETING WITH JOY',
-    totalRevenue: 2500,
-    percentage: 4,
-    width: 45
-  },
-]
-
-export const storePerformance2 = [
-  {
-    store: 'TUITION CENTER A (MONTHLY)',
-    totalRevenue: 10000,
   },
   {
     store: 'SHREDDER2U.COM.MY',
@@ -54,7 +21,7 @@ export const storePerformance2 = [
   },
 ]
 
-export const HorizontalConfig = [
+export const horizontalConfig = [
   {
     percentage: 45,
     width: 100
@@ -214,7 +181,7 @@ export const mockChartTwo = [
   }
 ];
 
-export const collections2 = [
+export const collectionsActiveNon = [
   {
     item: "Active Collection",
     value: 1600
@@ -234,7 +201,7 @@ export const colorCollection = [
   }
 ]
 
-export const chartData2 = [
+export const chartData = [
   {
     item: "Online Banking",
     value: 9900.10,
@@ -260,3 +227,24 @@ export const colorPaymentMethod = [
     color: "#84B6FF"
   }
 ]
+
+
+
+
+export const fpxMockData = {
+  expectedDate: '2022-09-15T00:00:00Z',
+  collection: [
+    {
+      collection: '490',
+      collectionDate: '2022-09-01T00:00:00Z',
+    },
+    {
+      collection: '200',
+      collectionDate: '2022-09-05T00:00:00Z',
+    },
+    {
+      collection: '100',
+      collectionDate: '2022-09-10T00:00:00Z',
+    }
+  ]
+}

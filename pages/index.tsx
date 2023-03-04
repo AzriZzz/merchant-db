@@ -1,13 +1,111 @@
 import Head from 'next/head'
 import Layout from '@/components/layout/Layout'
-import { collectionLineChart, transactionChart, upcomingPayout, collectionPieChart, paymentMethodsPieChart, totalPayout, chartData, collections, TOP5PERFORMINGCOLLECTIONS } from '@/constants/data';
-import axios from 'axios';
-import { apiChartData, mockChartOne, mockChartTwo, storePerformance } from '@/constants/mock';
+import { TOP5PERFORMINGCOLLECTIONS, UPCOMINGFPXPAYOUT, buttonTitle, TOTALPAYOUT, TOTALTRANSACTIONS, TOTALCOLLECTIONS, COLLECTIONPAYMENTMETHOD, ACTIVENONACTIVECOLLECTION } from '@/constants/data';
+import { apiChartData, chartData, collectionsActiveNon, colorCollection, colorPaymentMethod, fpxMockData, horizontalConfig, mockChartOne, mockChartTwo, storePerformance } from '@/constants/mock';
+import { findTotalCollection, formatterDouble } from '@/constants/serviceUtils';
 import Card from '@/components/components/Card';
 
-export default function Home(props: any) {
-  // const { apiCollections } = props;
-  
+export default function Home() {
+
+
+  // Upcoming FPX Payout
+  const upcomingPayoutCard = {
+    isSimple: false,
+    title: UPCOMINGFPXPAYOUT,
+    isCollapse: true,
+    buttonTitle: buttonTitle[1],
+    isCurrency: true,
+    total: findTotalCollection(fpxMockData.collection),
+    upcoming: fpxMockData
+  }
+
+  // Total Transaction
+  const totalPayoutCard = {
+    isSimple: false,
+    title: TOTALPAYOUT,
+    isCollapse: true,
+    buttonTitle: buttonTitle[0],
+    isCurrency: true,
+    total: findTotalCollection(mockChartTwo),
+    growth: 5.6,
+    isTrend: false,
+    line: mockChartTwo,
+  }
+
+  // Total Transaction
+  const totalTransactionCard = {
+    isSimple: false,
+    title: TOTALTRANSACTIONS,
+    isCollapse: true,
+    buttonTitle: buttonTitle[0],
+    isCurrency: false,
+    total: findTotalCollection(mockChartOne),
+    growth: 2.9,
+    isTrend: false,
+    line: mockChartOne,
+  }
+
+  // Total Collection
+  const totalCollectionCard = {
+    isSimple: false,
+    title: TOTALCOLLECTIONS,
+    isCollapse: true,
+    buttonTitle: buttonTitle[0],
+    isCurrency: true,
+    total: findTotalCollection(apiChartData),
+    growth: 2.6,
+    isTrend: true,
+    line: apiChartData,
+  }
+
+  // Collections by Payment Methods
+  const newPayment = chartData.map((item, index) => {
+    return {
+      item: item.item,
+      value: formatterDouble.format(Number(item.value)),
+      color: colorPaymentMethod[index].color
+    };
+  });
+
+  const collectionPaymentCard = {
+    simple: false,
+    title: COLLECTIONPAYMENTMETHOD,
+    pie: newPayment,
+    pieId: 0
+  }
+
+  // Active vs. Inactive Collection
+  const newCollections = collectionsActiveNon.map((item, index) => {
+    return {
+      item: item.item,
+      value: item.value,
+      color: colorCollection[index].color
+    };
+  });
+
+  const activeNonActiveCard = {
+    simple: false,
+    title: ACTIVENONACTIVECOLLECTION,
+    pie: newCollections,
+    pieId: 1
+  }
+
+  // Top 5 Performing Collections
+  const topPerformance = storePerformance.map((item, index) => {
+    return {
+      store: item.store,
+      totalRevenue: item.totalRevenue,
+      percentage: horizontalConfig[index].percentage,
+      width: horizontalConfig[index].width,
+    };
+  });
+
+  const performingCollectionCard = {
+    simple: false,
+    title: TOP5PERFORMINGCOLLECTIONS,
+    horizontal: topPerformance
+  }
+
   return (
     <div className='bg-primary-backgroud-blue'>
       <Head>
@@ -19,60 +117,28 @@ export default function Home(props: any) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      {/* <NavHeader /> */}
-
-      {/* Add Loader */}
-
-      {/* {isLoading ? (
-        <div className='flex items-center justify-center w-screen h-screen'>
-          <Lottie options={defaultOptions} height={200} width={200} />
-        </div>
-      ) : ( */}
       <Layout topBar="Overview Dashboard">
         <div className='flex flex-wrap gap-x-5 md:justify-center lg:justify-start'>
-
-          {/* API Call from mockapi.io */}
           <Card
-            title={collectionLineChart.title}
-            apiCollections={apiChartData}
-            growth='2.6'
-            trend={true}
+            data={totalCollectionCard}
           />
           <Card
-            title={transactionChart.title}
-            apiCollections={mockChartOne}
-            transaction={39}
-            growth='2.6'
-            trend={false}
+            data={totalTransactionCard}
           />
           <Card
-            title={totalPayout.title}
-            apiCollections={mockChartTwo}
-            payouts={25000}
-            growth='5.6'
-            trend={true}
+            data={upcomingPayoutCard}
           />
           <Card
-            title={upcomingPayout.title}
-            fpxPayout={1600}
-          />
-          {/* <Card
-            title={TOP5PERFORMINGCOLLECTIONS}
-            performance={storePerformance}
-          /> */}
-          <Card
-            title={collectionPieChart.title}
-            dataset={collections}
-            pieId={2}
-            displayOnly={true}
-            pieChart={true}
+            data={totalPayoutCard}
           />
           <Card
-            title={paymentMethodsPieChart.title}
-            dataset={chartData}
-            pieId={1}
-            displayOnly={true}
-            pieChart={true}
+            data={performingCollectionCard}
+          />
+          <Card
+            data={activeNonActiveCard}
+          />
+          <Card
+            data={collectionPaymentCard}
           />
         </div>
       </Layout>
@@ -80,23 +146,3 @@ export default function Home(props: any) {
     </div>
   )
 }
-
-// export async function getServerSideProps(context: any) {
-//   try {
-//     const res = await axios.get('https://63de5b049fa0d60060fd41a5.mockapi.io/merchant-blpz/collections');
-//     const apiCollections = res.data;
-
-//     return {
-//       props: { apiCollections },
-//     };
-//   } catch (error: any) {
-//     console.error(error);
-//     if (error.response && error.response.status === 504 || error.response && error.response.status === 503) {
-//       context.res.writeHead(302, {
-//         Location: '/error',
-//       });
-//       context.res.end();
-//     }
-//     return { props: {} };
-//   }
-// }

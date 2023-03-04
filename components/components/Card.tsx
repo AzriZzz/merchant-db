@@ -1,107 +1,68 @@
 import React, { useEffect, useState } from 'react'
 import dynamic from 'next/dynamic'
-import Collection from './Collection'
-import { collectionLineChart, transactionChart, upcomingPayout, totalPayout, totalBill, cardState, totalPaid } from '@/constants/data'
-import { CardType } from '@/models/interface'
-import { findTotalCollection, formatterDouble } from '@/constants/services'
-import Fpxpayout from './Fpxpayout'
+import Collection from './Horizontal'
+import { CardType, ICard } from '@/models/interface'
+import { formatterDouble } from '@/constants/serviceUtils'
 import LineChart from '../chart/LineChart'
+import Horizontal from './Horizontal'
+import CollectionList from './CollectionList'
 
 // Turn off rendering during SSR
 const PieChart = dynamic(() => import('../chart/PieChart'), {
   ssr: false,
 })
 
-const Card = (props: CardType) => {
-  const [total, setTotal] = useState(0);
+const Card = (props: ICard) => {
 
-  useEffect(() => {
-    if (props.apiCollections !== undefined) {
-      const totalCollection = findTotalCollection(props.apiCollections);
-      setTotal(totalCollection)
-    }
-    
-    return () => {
-    }
-  }, [props.amount, props.apiCollections])
-
-
+  const { data } = props;
+  if (!data) {
+    return (
+      <div className="error-message">
+        <p>Data is undefined</p>
+      </div>
+    );
+  }
 
   return (
-    <div className={`w-full md:w-[374px] ${props.state === cardState[0] ? `h-[93px]` : `h-[312px]` }  bg-neutral-white rounded-lg mt-5 p-5 shadow-card`}>
-
-      {/* Card Header */}
-
-      <div className='flex flex-col justify-between h-full space-between'>
-        <div>
+    <div className={`w-full md:w-[374px] ${data.isSimple ? `h-[93px]` : `h-[312px]`}  bg-neutral-white rounded-lg mt-5 p-5 shadow-card`}>
+      <div className='flex flex-col h-full space-between'>
+        <div className='card card-header'>
           <div className='flex justify-between space-between'>
-            <div className={`${props.state === cardState[0] ? '' : 'font-bold'} `}>
-              {props.title}
-              {/* Add a conditional icon here */}
+            <div className={`${data.isSimple ? '' : 'font-bold'} `}>
+              {data.title}
             </div>
             <div className='font-bold cursor-pointer text-primary-blue '>
-              {/* Conditional statement based on See Details or View All */}
-              {
-                props.title === collectionLineChart.title || 
-                props.title === transactionChart.title || 
-                props.title === totalPayout.title || 
-                props.title === totalBill.title ? `View All` :
-                props.title === upcomingPayout.title ? `See details` : ''
-              }
-
+              {data.isCollapse ? data.buttonTitle : null}
             </div>
           </div>
 
-          <div className='mt-2.5'>
-            <div className='flex flex-row items-center text-2xl '>
-              <div className={`pr-[5px] font-semibold ${props.state === cardState[0] ? ' text-lg text-primary-success -translate-y-2' : '' }`}>
-                {
-                  props.title === collectionLineChart.title ? formatterDouble.format(Number(total)) :
-                  props.title === totalPaid.title ? formatterDouble.format(Number(props.amount)) :
-                  props.title === transactionChart.title ? (`${props.transaction}`) :
-                  props.title === upcomingPayout.title ? formatterDouble.format(Number(props.fpxPayout))  :
-                  props.title === totalPayout.title || 
-                  props.title === totalBill.title ? formatterDouble.format(Number(props.payouts)) : ('')
-                }
-              </div>
-              <div>
-                {
-                  props.trend !== undefined && (
-                    <div className={`text-xl ${props.trend ? 'text-primary-success' : 'text-primary-danger'}`}>
-                      {props.trend ? '\u2191' : '\u2193'}{props.growth}%
-                    </div>
-                  )
-                }
-              </div>
+          <div className={`flex flex-row mt-2.5 `}>
+            <div className={`font-semibold pr-[5px] ${data.isPaid ? ' text-primary-success text-xl  -translate-y-[5px]' : 'text-2xl '} `}>
+              {data.isCurrency ? formatterDouble.format(Number(data.total)) : data.total}
             </div>
 
-
+            {
+              data.growth !== undefined &&
+              <div className={`text-xl translate-y-[2px] ${data.isTrend ? 'text-primary-success' : 'text-primary-danger'}`}>
+                {data.isTrend ? '\u2191' : '\u2193'}{data.growth}%
+              </div>
+            }
           </div>
-          {/* Add secondary title here according to the type of information card display */}
-        </div>
-
-        {/* Below is the body, where we show most data, charts and other stuff */}
-        <div>
-          {/* Feed API data to the line chart to make it dynamic */}
-
-          {/* Line Chart Stuff */}
-          { props.transaction || props.title === collectionLineChart.title || props.payouts ? (<LineChart dataset={props.apiCollections} />) : ''}
-
-          {/* Payout Stuff */}
-          { props.fpxPayout !== undefined && (<Fpxpayout />)}
-
-          {/* 3D Pie Chart */}
-          { props.pieChart !== undefined && (<PieChart dataset={props.dataset} id={props.pieId} />)}
-
-          {/* Performing Collection */}
-          { props.performance !== undefined && (<Collection dataset={props.performance} />)}
-
 
         </div>
+        <div className='card card-body'>
+
+          {data.upcoming !== undefined && <CollectionList dataset={data.upcoming} />}
+
+          {data.line !== undefined && <LineChart dataset={data.line} />}
+
+          {data.pie !== undefined && <PieChart dataset={data.pie} id={data.pieId} />}
+
+          {data.horizontal !== undefined && <Horizontal dataset={data.horizontal} />}
+
+        </div>
+
       </div>
-
-
-
 
 
     </div>

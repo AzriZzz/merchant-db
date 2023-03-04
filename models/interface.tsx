@@ -44,14 +44,15 @@ export interface CardType {
 }
 
 export interface ICard {
-    data?: {
+    data: {
         isSimple?: boolean
         title?: string,
         substitle?: string,
         isCollapse?: boolean,
         buttonTitle?: string,
         isCurrency?: boolean,
-        total?: string,
+        total?: number,
+        isPaid?: boolean,
         subTotalCollection?: string,
         isSubCollectionSettlement?: boolean,
         growth?: number,
@@ -85,9 +86,11 @@ export interface ILine {
 }
 
 export interface IUpcoming {
-    statement?: string,
-    collection: {
-        date: string,
-        amount: string
-    }[]
+    expectedDate: string,
+    collection: IColList[]
+}
+
+export interface IColList {
+    collection: string,
+    collectionDate: string
 }

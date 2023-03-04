@@ -1,4 +1,4 @@
-import { formatterDouble } from '@/constants/services'
+import { formatterDouble } from '@/constants/serviceUtils'
 import React from 'react'
 
 const List = ({ item, color, value, id}: any) => {
