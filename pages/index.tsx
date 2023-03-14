@@ -1,9 +1,11 @@
+import { useEffect, useState } from 'react';
 import Head from 'next/head'
 import Layout from '@/components/layout/Layout'
+import Card from '@/components/components/Card';
+import Loader from '@/components/components/Loader';
+import uuidv4, { findTotalCollection, formatterDouble } from '@/constants/serviceUtils';
 import { TOP5PERFORMINGCOLLECTIONS, UPCOMINGFPXPAYOUT, buttonTitle, TOTALPAYOUT, TOTALTRANSACTIONS, TOTALCOLLECTIONS, COLLECTIONPAYMENTMETHOD, ACTIVENONACTIVECOLLECTION } from '@/constants/data';
 import { apiChartData, chartData, collectionsActiveNon, colorCollection, colorPaymentMethod, fpxMockData, horizontalConfig, mockChartOne, mockChartTwo, storePerformance } from '@/constants/mock';
-import uuidv4, { findTotalCollection, formatterDouble } from '@/constants/serviceUtils';
-import Card from '@/components/components/Card';
 
 export default function Home() {
 
@@ -110,6 +112,25 @@ export default function Home() {
     chartId: uuidv4()
   }
 
+  // Loader 
+
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Check if the isLoading value is saved in localStorage
+    const storedValue = localStorage.getItem('isLoading');
+    if (storedValue !== null) {
+      setIsLoading(storedValue === 'true');
+    } else {
+      // If isLoading value is not saved in localStorage, show loader for 4 seconds
+      setTimeout(() => {
+        setIsLoading(false);
+        // Save isLoading value in localStorage
+        localStorage.setItem('isLoading', 'false');
+      }, 4000);
+    }
+  }, []);
+
   return (
     <div className='bg-primary-backgroud-blue'>
       <Head>
@@ -121,17 +142,24 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Layout topBar="Overview Dashboard">
-        <div className='flex flex-wrap gap-x-5 md:justify-center lg:justify-start'>
-          <Card card={totalCollectionCard} />
-          <Card card={totalTransactionCard} />
-          <Card card={upcomingPayoutCard} />
-          <Card card={totalPayoutCard} />
-          <Card card={performingCollectionCard} />
-          <Card card={activeNonActiveCard} />
-          <Card card={collectionPaymentCard}/>
-        </div>
-      </Layout>
+      {isLoading ?
+        <Loader width={217} height={34} />
+
+        :
+        <Layout topBar="Overview Dashboard">
+          <div className='flex flex-wrap gap-x-5 md:justify-center lg:justify-start'>
+            <Card card={totalCollectionCard} />
+            <Card card={totalTransactionCard} />
+            <Card card={upcomingPayoutCard} />
+            <Card card={totalPayoutCard} />
+            <Card card={performingCollectionCard} />
+            <Card card={activeNonActiveCard} />
+            <Card card={collectionPaymentCard} />
+          </div>
+        </Layout>
+      }
+
+
       {/* )} */}
     </div>
   )

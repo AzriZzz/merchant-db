@@ -23,7 +23,7 @@ const Card = (props: ICard) => {
   }
 
   return (
-    <div className={`w-full md:w-[374px] ${card.isSimple ? `h-[93px]` : `h-[312px]`}  bg-neutral-white rounded-lg mt-5 p-5 shadow-card`}>
+    <div className={`w-full  md:w-[374px] ${card.isSimple ? `h-[93px]` : `h-[312px]`}  bg-neutral-white rounded-lg mt-5 p-5 shadow-card`}>
       <div className='flex flex-col h-full space-between'>
         <div className='card card-header'>
           <div className='flex justify-between space-between'>

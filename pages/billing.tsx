@@ -1,10 +1,10 @@
+import React from 'react'
+import Head from 'next/head'
 import Card from '@/components/components/Card'
 import Layout from '@/components/layout/Layout'
-import { TOP5PERFORMINGCOLLECTIONS, buttonTitle, ACTIVENONACTIVECOLLECTION, COLLECTIONPAYMENTMETHOD, TOTALCOLLECTIONS, TOTALTRANSACTIONS, TOTALPAYOUT, UPCOMINGFPXPAYOUT, TOTALPAID } from '@/constants/data'
-import { apiChartData, chartData, collectionsActiveNon, colorCollection, colorPaymentMethod, fpxMockData, horizontalConfig, mockChartOne, mockChartTwo, storePerformance } from '@/constants/mock'
-import uuidv4, { findTotalCollection, formatterDouble } from '@/constants/serviceUtils'
-import Head from 'next/head'
-import React from 'react'
+import uuidv4, { findTotalCollection } from '@/constants/serviceUtils'
+import { TOP5PERFORMINGCOLLECTIONS, buttonTitle, TOTALCOLLECTIONS, TOTALPAID } from '@/constants/data'
+import { apiChartData, horizontalConfig, storePerformance } from '@/constants/mock'
 
 
 const Billing = () => {
@@ -74,7 +74,7 @@ const Billing = () => {
           <Card
             card={performingCollectionCard}
           />
-          <div className='simple-card'>
+          <div className='flex flex-wrap gap-x-5 simple-card'>
             <Card
               card={totalPaidCard}
             />
