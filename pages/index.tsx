@@ -127,7 +127,7 @@ export default function Home() {
         setIsLoading(false);
         // Save isLoading value in localStorage
         localStorage.setItem('isLoading', 'false');
-      }, 4000);
+      }, 3000);
     }
   }, []);
 
