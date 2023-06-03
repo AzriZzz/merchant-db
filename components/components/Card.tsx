@@ -57,7 +57,7 @@ const Card = (props: ICard) => {
           <div className={`flex flex-row mt-2.5 `}>
             <div
               className={`font-semibold pr-[5px]               
-                ${isPaid && "text-primary-success"}
+                ${isPaid ? "text-primary-success" : ''}
                 ${isSimple ? "text-xl" : "text-2xl"}
               `}
             >
